@@ -2,6 +2,7 @@ import PostTabMenu from "@/components/main/postTabMenu/PostTabMenu";
 import React from "react";
 import PostTabContents from "@/components/main/PostTabContents";
 import UserGuide from "@/components/main/userGuide/UserGuide";
+import InitialPostsDataProvider from "@/app/InitialPostsDataProvider";
 
 function HomePage() {
     return (
@@ -11,7 +12,9 @@ function HomePage() {
             </aside>
             <main className="mt-10 mobile:mt-2">
                 <PostTabMenu/>
-                <PostTabContents/>
+                <InitialPostsDataProvider>
+                    <PostTabContents/>
+                </InitialPostsDataProvider>
             </main>
         </>
     );
