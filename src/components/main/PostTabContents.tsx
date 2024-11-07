@@ -28,7 +28,7 @@ function PostTabContents() {
                 >
                     프로젝트 지원 현황
                 </Button>
-                <MyProjectPosts/>
+                <MyProjectPosts isActive={activePostTab.name === PostTabs.myProjects.name}/>
                 <ParticipateNoticeModal/>
             </div>
             <div
