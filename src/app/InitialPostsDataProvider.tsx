@@ -14,6 +14,7 @@ async function InitialPostsDataProvider({children}: { children: React.ReactNode 
             keyword: '',
             page: 0
         }),
+        staleTime: 60 * 1000
     });
 
     const dehydratedState = dehydrate(queryClient);
