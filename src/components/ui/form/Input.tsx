@@ -1,13 +1,10 @@
 'use client';
 import { InputHTMLAttributes } from "react";
+import {classNames} from "@/utils/common";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   required?: boolean;
-}
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
 }
 
 function Input({ id, label, disabled = false, required = false, ...props }: InputProps) {
