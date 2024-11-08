@@ -4,14 +4,14 @@ import {request, requestWithAuth} from "@/service/project/request";
 import {CreatePostForm} from "@/app/postRegister/_utils/type";
 import {throwErrorIfInvalid} from "@/utils/common";
 
-export interface SearchParams {
+export interface SearchPostParams {
     techStacks: TechStackWithCategory[];
     position: string;
     keyword: string;
     page: number;
 }
 
-const createQueryParams = (params: SearchParams) => {
+const createQueryParams = (params: SearchPostParams) => {
     const {techStacks, position, keyword, page} = params;
     const queryParams = new URLSearchParams();
 
@@ -33,7 +33,7 @@ const createQueryParams = (params: SearchParams) => {
  * 게시글 목록 조회
  * @param params
  */
-export const getPostList = async (params: SearchParams = {techStacks: [], position: '0', page: 0, keyword: ''}) => {
+export const getPostList = async (params: SearchPostParams = {techStacks: [], position: '0', page: 0, keyword: ''}) => {
     const queryParams = createQueryParams(params);
     return await request('GET', `/api/post/search?${queryParams}`);
 };
