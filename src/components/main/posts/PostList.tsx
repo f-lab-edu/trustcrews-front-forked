@@ -19,6 +19,7 @@ const PostList = () => {
 
     const {
         data,
+        isLoading,
         isFetching,
         isPending,
         isError
@@ -33,7 +34,7 @@ const PostList = () => {
         staleTime: 0
     });
 
-    if (isPending || isError) return <PostListSkeleton itemCount={8}/>;
+    if (isLoading || isError) return <PostListSkeleton itemCount={8}/>;
 
     if (!(data?.data) || data.data.content.length < 1) return (
         <div
