@@ -111,7 +111,7 @@
 
 
 
-# TRUSTCREWS 페이지 소개 & 이용안내 
+# 페이지 소개 & 이용안내 
 
 👋 [회원 가입 & 로그인](https://www.notion.so/103ddc74b864807791ced1f3461a9b1b?pvs=21)
 
