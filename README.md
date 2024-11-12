@@ -1,20 +1,18 @@
-<br/>
 
-# TRUSTCREWS 프로젝트 
 
-<br/>
 
-## 📋 프로젝트 개요 
+
+# 프로젝트 소개 
 - 다양한 개발 직군, 개발 언어를 사용하는 사이드 프로젝트를 찾아 참여하거나, 사이드 프로젝트 팀원을 모집할 수 있는 사이트 입니다.
-- 사이드 프로젝트의 업무와 팀원을 관리할 수 있으며, 팀원 강제탈퇴 시스템, 프로젝트 업무 수행을 통해 얻는 '신뢰점수' 시스템 등 다양한 방법으로
-  책임감 있는 사이드 프로젝트 운영을 돕습니다. 
+- 사이드 프로젝트의 **업무**와 **팀원**을 관리할 수 있으며, **팀원 강제탈퇴 시스템**, 프로젝트 업무 수행을 통해 포인트를 얻는 **신뢰점수 시스템** 등 다양한 방법으로
+  **책임감 있는** 사이드 프로젝트 운영을 돕습니다. 
 
 <br/>
 
 ## 📃 기획 배경
 
-- 온라인에서 팀을 이뤄 사이드 프로젝트를 할 때 시간이 갈수록 참여율이 떨어져 프로젝트가 무산되는 경험을 수차례 하다보니, 프로젝트 책임감을 눈으로 확인하고 팀원을 모집 할 수 있는 사이트가 있으면 좋겠다고 생각했다.
-- 공부하고 있는 모던 프론트엔드 기술스택(Next.js, Typescript 등)을 실제 사이트 개발에 적용해보며 실제적인 프론트엔드 개발 경험을 쌓고 싶었다.
+- 온라인에서 팀을 이뤄 사이드 프로젝트를 할 때 시간이 갈수록 참여율이 떨어져 프로젝트가 무산되는 경험을 수차례 하다보니, 프로젝트 책임감을 눈으로 확인하고 팀원을 모집 할 수 있는 사이트가 있으면 좋겠다고 생각했습니다. 
+- 공부하고 있는 모던 프론트엔드 기술스택(Next.js, Typescript 등)을 실제 사이트 개발에 적용해보며 실제적인 프론트엔드 개발 경험을 쌓고 싶었습니다.
 
 
 <br/>
@@ -61,50 +59,126 @@
     Java, SpringBoot, JPA, Gradle, MySQL, Redis, Amazon AWS, Docker, Github Actions, JWT
 
 
-<br/>
+<br><br>
 
-## ⚙️ 핵심 기능
 
-### 1. **사용자**
+# ⚙️ 핵심 기능 & 페이지
 
-- **회원가입**
-- **로그인/로그아웃**
-- **사용자 정보 조회 & 수정**
-    - 사용자 정보(닉네임, 직무 등) 조회 및 수정
-    - 사용자 프로젝트 개설/참여/탈퇴/강제탈퇴 이력 조회
-    - 사용자 신뢰점수/신뢰 레벨 조회
+<br>
 
-### 2. 프로젝트 모집 / 참여
+## Part 1. **사용자**
 
-- **프로젝트 & 프로젝트 모집 게시글 생성**
-    - 프로젝트 기술 스택, 포지션 등을 선택해서 프로젝트 & 프로젝트 모집 게시글 생성
-    - 모집 게시글 내용은 프로젝트 내부에서 관리
-- **프로젝트 참여 신청**
-    - 기술스택/포지션/게시글 제목별 모집 게시글 조회
-    - 프로젝트 참여 신청
-    - 프로젝트 참여 신청 상태 조회
+<br><br>
 
-### 3. 프로젝트 관리
+### **회원가입**
 
-- **업무 관리**
-    - 마일스톤 & 업무 CRUD
-    - 업무별 담당 크루, 할 일, 진행 상태
-- **팀원 관리**
-    - 크루 강제탈퇴 투표 시스템
-    - 크루 모집 투표 시스템
-- **프로젝트 정보 / 상태 관리**
-    - 프로젝트명, 기간 등 프로젝트 일반 정보 수정
-    - 프로젝트 모집 게시글 내용 수정
-    - 프로젝트 종료 기능
+<br>
 
-### 4. **신뢰 점수, 신뢰 레벨 시스템**
+<img src="https://github.com/user-attachments/assets/f7b575fd-4efa-4e49-825d-6906acc07b18" width="700px" />
 
-- **신뢰 점수 구간별 신뢰 레벨:** level1(신뢰점수 0) - level4(신뢰 점수 4000 이상)
-- **신뢰 점수 가감 기능**
-    - 프로젝트 업무 완료시 담당 크루의 신뢰 점수 가산
-    - 프로젝트 강제 탈퇴시 크루의 신뢰 점수 차감
-    - 신뢰 레벨별로 다른 가감 점수 적용
- 
+<br><br>
+
+### **로그인/로그아웃**
+
+<img src="https://github.com/user-attachments/assets/f999897a-c6bc-4853-a4e8-b1b46667f63b" width="350px" />
+<img src="https://github.com/user-attachments/assets/e252b8a5-cc49-4443-aad9-3eccfe466ab6" width="350px"/>
+
+<br><br>
+
+### **사용자 정보 조회 및 수정**
+
+- 닉네임 등의 일반정보와 신뢰점수/신뢰등급, 프로젝트 이력(개설,참여,종료,탈퇴,강제탈퇴)을 확인할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/e4515675-c163-461a-9822-05262fc96f21" width="350px" />
+<img src="https://github.com/user-attachments/assets/bb20da04-64db-4565-b0ab-13074cb58ab0" width="350px" />
+
+<br><br><br><br>
+
+## Part 2. 프로젝트 모집 / 참여
+
+<br><br>
+
+### **프로젝트 개설**
+
+- **기술 스택**과 **모집 포지션**을 선택할 수 있습니다.
+- 모집 게시글 생성과 동시에 **업무/팀원**을 관리할 수 있는 **프로젝트 관리 board** 가 생성됩니다.
+<img src="https://github.com/user-attachments/assets/5d2734dd-97d0-4c5f-8835-782780f8d903" width="350px" />
+<img src="https://github.com/user-attachments/assets/f062013c-0a2f-4c63-91b3-5b72b1c7cb85" width="350px" />
+
+<br><br>
+
+
+### **프로젝트 조회 & 참여**
+
+- **기술스택, 포지션, 제목별** 검색을 통해 모집 게시글을 조회할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/7bf5aeaf-97ff-4509-bd2c-dd5a871198fc" width="700px" />
+
+<br><br>
+
+- **[모집 게시글 상세페이지]** 에서 원하는 포지션을 선택, **프로젝트 참여 신청**을 할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/b8e1903f-a9c9-4714-9e34-2ed752b054e1" width="350px" />
+<img src="https://github.com/user-attachments/assets/f241fbbb-d8db-469f-8195-4b7da2842af6" width="350px" />
+
+<br><br>
+
+- **[참여 프로젝트 > 참여 신청 현황]** 을 통해 현재 참여신청한 **프로젝트의 수락/거절 여부**를 확인할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/86ed8f7c-2565-4ac9-a151-7fdde5149062" width="700px" />
+
+
+<br><br><br><br>
+
+
+## Part 3. 프로젝트 관리
+
+<br><br>
+
+### **업무 관리**
+
+- 프로젝트당 **최대 5개의** **마일스톤**과, 마일스톤별 **최대 30개의** **업무**를 관리할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/06a4edb0-6ae6-425e-8031-43cfdfadf621" width="700px"/>
+
+
+<br><br>
+
+
+- 업무별 **담당 크루, 할 일(최대 5개), 진행 상태**를 지정할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/62fe4532-f96e-41e7-9c87-290c8288fb59" width="700px" />
+
+
+<br><br>
+
+
+- 업무 완료시, 담당 크루의 신뢰레벨에 따라 일정량의 **신뢰점수**를 획득하며, **[크루 > 상세페이지]** 에서 업무 수행에 따른 **점수 획득 이력**을 확인할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/52e60eb8-66eb-40c8-bd1d-2a92649a6f98" width="350px" />
+<img src="https://github.com/user-attachments/assets/59d510a6-431e-4727-a89f-82c7b0e10a45" width="350px />
+
+<br><br>
+
+### **팀원 관리**
+
+- **[알림 > 모집투표] 에서** 프로젝트 참여신청자를 확인하고 모집투표를 진행할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/e4f083af-79ca-4fd4-8a20-0b5433854177" width="350px" />
+<img src="https://github.com/user-attachments/assets/c5e25ef8-f4f8-4df0-9d47-8fc8aabb49bc" width="350px" />
+
+<br><br>
+
+- **[크루 > 상세페이지]** 에서 **크루 강제탈퇴 신청** 후, **[알림 > 강제탈퇴투표]** 에서 **크루 강제탈퇴 투표**를 진행할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/9a98efbf-7801-4681-8ab9-165610827a5b" width="350px" />
+<img src="https://github.com/user-attachments/assets/7cd8a4c4-6c2a-4e62-840c-0c4c3fd3947a" width="350px" />
+
+<br><br>
+
+### **프로젝트 설정**
+
+- **[프로젝트 설정 > 프로젝트 정보]** 에서 프로젝트의 이름, 주제 등을 수정할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/f21a929e-4a5e-4157-8fcb-0a6afd01cc91" width="700px" />
+
+<br><br>
+
+- **[프로젝트 설정 > 모집 게시글]** 에서 프로젝트의 모집 게시글 내용을 수정할 수 있습니다.
+<img src="https://github.com/user-attachments/assets/bd5dfaa5-b4c0-407e-aec0-511c6b8eafc1" width="700px" />
+
+
+
 
 
 <br/>
