@@ -13,7 +13,7 @@ export default function TaskSectionHeader({milestoneInfo}:{milestoneInfo:Milesto
             <TaskAddButton milestoneId={milestoneId} projectId={projectId}/>
             <div className='flex-wrap flex mobile:flex-col items-center mobile:items-start tablet:ml-4 mr-auto space-x-3 mobile:space-x-0'>
                 <h3 className='max-w-[300px] my-1 tablet:text-3xl mobile:text-lg font-medium text-greyDarkBlue truncate'>
-                    {content}정
+                    {content}
                 </h3>
                 <div className='flex-wrap flex items-center space-x-2 tablet:text-xl mobile:text-base text-grey800'>
                     <span>{startDate}</span>
