@@ -8,8 +8,6 @@ import SettingBody from "@/components/project/setting/SettingBody";
 function ProjectSettingInfoSkeleton() {
     return (
         <>
-            <SettingContainer>
-                <SettingTitle>프로젝트 정보</SettingTitle>
                 <SettingBody>
                     <InputStyleSkeleton label='프로젝트 이름'/>
                     <InputStyleSkeleton label='프로젝트 주제'/>
@@ -21,11 +19,10 @@ function ProjectSettingInfoSkeleton() {
                     </div>
                     <InputStyleSkeleton label='기술 스택'/>
                 </SettingBody>
-                <div className="w-full my-4 flex items-center justify-center space-x-2">
-                    <ButtonStyleSkeleton>초기화</ButtonStyleSkeleton>
-                    <ButtonStyleSkeleton>저장</ButtonStyleSkeleton>
-                </div>
-            </SettingContainer>
+                {/*<div className="w-full my-4 flex items-center justify-center space-x-2">*/}
+                {/*    <ButtonStyleSkeleton>초기화</ButtonStyleSkeleton>*/}
+                {/*    <ButtonStyleSkeleton>저장</ButtonStyleSkeleton>*/}
+                {/*</div>*/}
         </>
     );
 }

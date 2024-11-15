@@ -7,6 +7,7 @@ import {
 } from "@/store/project/setting/ProjectSettingFormStateStore";
 import {ProjectSettingInfoData} from "@/service/project/setting/info";
 import {addDays, format} from "date-fns";
+import FormRow from "@/components/ui/form/FormRow";
 
 type ProjectSettingInfoStartDate = ProjectSettingInfoUpdField<'startDate'>;
 type ProjectSettingInfoEndDate = ProjectSettingInfoUpdField<'endDate'>;
@@ -39,23 +40,25 @@ function ProjectDate({
     }, [startDateValue, endDateValue, setEndDate, setEndMinDate]);
 
     return (
-        <div className="w-[380px] mobile:w-[300px] space-y-10 mobile:mx-auto">
-            <CalendarInput
-                id="startDate"
-                label="시작 날짜"
-                placeholder="날짜를 선택해주세요."
-                date={startDateValue}
-                setDate={(startDate) => setStartDate(startDate)}
-            />
-            <CalendarInput
-                id="endDate"
-                label="종료 날짜"
-                placeholder="날짜를 선택해주세요."
-                date={endDateValue}
-                setDate={(endDate) => setEndDate(endDate)}
-                minDate={endMinDate}
-            />
-        </div>
+        <FormRow className="pc:place-self-center row-span-2 ">
+            <div className='space-y-10'>
+                <CalendarInput
+                    id="startDate"
+                    label="시작 날짜"
+                    placeholder="날짜를 선택해주세요."
+                    date={startDateValue}
+                    setDate={(startDate) => setStartDate(startDate)}
+                />
+                <CalendarInput
+                    id="endDate"
+                    label="종료 날짜"
+                    placeholder="날짜를 선택해주세요."
+                    date={endDateValue}
+                    setDate={(endDate) => setEndDate(endDate)}
+                    minDate={endMinDate}
+                />
+            </div>
+        </FormRow>
     );
 }
 

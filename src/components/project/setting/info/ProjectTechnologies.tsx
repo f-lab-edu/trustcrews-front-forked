@@ -7,6 +7,7 @@ import {
     projectSettingInfoSelector,
     ProjectSettingInfoUpdField
 } from "@/store/project/setting/ProjectSettingFormStateStore";
+import FormRow from "@/components/ui/form/FormRow";
 
 function ProjectTechnologies({initData}: { initData: ProjectSettingInfoData['technologyStacks'] }) {
     const [technologyIds, setTechnologyIds] = useRecoilState(projectSettingInfoSelector('technologyIds'));
@@ -16,12 +17,14 @@ function ProjectTechnologies({initData}: { initData: ProjectSettingInfoData['tec
         : initData.map(v => v.techStackId);
 
     return (
-        <TechStackSelect
-            techStacks={techStacks}
-            setTechStacks={(item: readonly TechStackValueType[]) => setTechnologyIds([...item])}
-            label="기술 스택"
-            placeholder="기술 스택을 선택해주세요."
-        />
+        <FormRow>
+            <TechStackSelect
+                techStacks={techStacks}
+                setTechStacks={(item: readonly TechStackValueType[]) => setTechnologyIds([...item])}
+                label="기술 스택"
+                placeholder="기술 스택을 선택해주세요."
+            />
+        </FormRow>
     );
 }
 

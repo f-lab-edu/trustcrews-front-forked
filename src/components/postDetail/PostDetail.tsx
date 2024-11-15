@@ -14,7 +14,7 @@ import {useResetRecoilState} from "recoil";
 import {selectRecruitPositionState} from "@/store/postDetail/PostDetailStateStore";
 
 const PostDetail = ({postId, projectId}: { postId: string, projectId: string }) => {
-    const {data: projectInfo, isFetching: isFetchingProjectInfo} = useProjectInfoSummary(projectId);
+    const {data: projectInfo, isPending: isFetchingProjectInfo, isError} = useProjectInfoSummary(projectId);
     const resetRecruitPositionState = useResetRecoilState(selectRecruitPositionState);
 
     // unmount시 모집포지션 select state 초기화
@@ -30,7 +30,6 @@ const PostDetail = ({postId, projectId}: { postId: string, projectId: string }) 
         queryFn: () => getPost(numStrToBigInt(postId)),
         staleTime: 0
     });
-
 
     if (isFetchingProjectInfo || isFetchingPostInfo) return <PostDetailSkeleton/>;
 

@@ -20,9 +20,8 @@ const PostList = () => {
     const {
         data,
         isLoading,
-        isFetching,
-        isPending,
-        isError
+        isError,
+        fetchStatus
     } = useQuery<PageResponseBody<PostCardInfo[]>, Error, PageResponseBody<PostCardInfo[]>>({
         queryKey: ['postList', selectedTechStacks, selectedPosition, searchValue, pageNumber],
         queryFn: () => getPostList({
@@ -33,7 +32,6 @@ const PostList = () => {
         }),
         staleTime: 0
     });
-
     if (isLoading || isError) return <PostListSkeleton itemCount={8}/>;
 
     if (!(data?.data) || data.data.content.length < 1) return (

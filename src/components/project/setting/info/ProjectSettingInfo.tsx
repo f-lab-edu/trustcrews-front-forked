@@ -5,7 +5,7 @@ import ProjectSubject from "@/components/project/setting/info/ProjectSubject";
 import ProjectDate from "@/components/project/setting/info/ProjectDate";
 import ProjectSettingFormResetButton from "@/components/project/setting/info/ProjectSettingFormResetButton";
 import ProjectSettingFormSaveButton from "@/components/project/setting/info/ProjectSettingFormSaveButton";
-import useProjectInfoSummary from "@/hooks/useProjectInfoSummary";
+import useProjectInfoSummary, {isQueryDataReady} from "@/hooks/useProjectInfoSummary";
 import {useResetRecoilState, useSetRecoilState} from "recoil";
 import {
     projectSettingInfoSelector,
@@ -23,7 +23,15 @@ function ProjectSettingInfo({projectId, authMap}: { projectId: bigint, authMap: 
     const setProjectSettingAuthMap = useSetRecoilState(projectSettingInfoSelector("authMap"));
     const resetProjectSettingInfoState = useResetRecoilState(projectSettingInfoStateStore);
 
-    const {data, isFetching} = useProjectInfoSummary(bigIntToString(projectId));
+    const {
+        data,
+        error,
+        isPending,
+        isRefetching,
+        isError,
+        isRefetchError
+    } = useProjectInfoSummary(bigIntToString(projectId));
+
 
     useEffect(() => {
         // 마운트시 projectId, authMap 상태 초기화
@@ -34,26 +42,30 @@ function ProjectSettingInfo({projectId, authMap}: { projectId: bigint, authMap: 
         return () => resetProjectSettingInfoState();
     }, [projectId, authMap, setProjectSettingProjectId, setProjectSettingAuthMap, resetProjectSettingInfoState]);
 
-    if (isFetching) return <ProjectSettingInfoSkeleton/>;
 
-    const {projectName, projectSubject, startDate, endDate, technologyStacks} = data!.data!;
+    const isDataReady = isQueryDataReady(isPending || isRefetching, isError || isRefetchError, data);
+
+    let settingBody = <></>;
+    if (!isDataReady) {
+        if (isPending || isRefetching) settingBody = <ProjectSettingInfoSkeleton/>;
+        if (isError || isRefetchError) settingBody = <div>데이터 조회에 실패했습니다.</div>;
+    } else {
+        const {projectName, projectSubject, startDate, endDate, technologyStacks} = data.data!;
+        settingBody = (
+            <SettingBody>
+                <ProjectName initData={projectName}/>
+                <ProjectSubject initData={projectSubject}/>
+                <ProjectDate initStartDate={startDate} initEndDate={endDate}/>
+                <ProjectTechnologies initData={technologyStacks}/>
+            </SettingBody>
+        );
+    }
+
+
     return (
         <SettingContainer>
             <SettingTitle>프로젝트 정보</SettingTitle>
-            <SettingBody>
-                <div className="w-[380px] mobile:w-[300px] space-y-5 mobile:space-y-3 mobile:mx-auto">
-                    <ProjectName initData={projectName}/>
-                </div>
-                <div className="w-[380px] mobile:w-[300px] space-y-5 mobile:space-y-3 mobile:mx-auto">
-                    <ProjectSubject initData={projectSubject}/>
-                </div>
-                <div className='row-span-2'>
-                    <ProjectDate initStartDate={startDate} initEndDate={endDate}/>
-                </div>
-                <div className="w-[380px] mobile:w-[300px] space-y-5 mobile:space-y-3 mobile:mx-auto">
-                    <ProjectTechnologies initData={technologyStacks}/>
-                </div>
-            </SettingBody>
+            {settingBody}
             <div className="w-full my-4 flex items-center justify-center space-x-2">
                 <ProjectSettingFormResetButton/>
                 <ProjectSettingFormSaveButton initData={data!.data!}/>
