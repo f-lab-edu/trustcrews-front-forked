@@ -40,7 +40,7 @@ function ProjectDate({
     }, [startDateValue, endDateValue, setEndDate, setEndMinDate]);
 
     return (
-        <FormRow className="pc:place-self-center row-span-2 ">
+        <FormRow className="row-span-2 ">
             <div className='space-y-10'>
                 <CalendarInput
                     id="startDate"
