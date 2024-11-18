@@ -5,6 +5,7 @@ import {ProjectInfoSkeleton} from "@/components/ui/skeleton/project/task";
 import useProjectInfoSummary, {isQueryDataReady} from "@/hooks/useProjectInfoSummary";
 import ProjectInfoItem from "@/components/project/layout/projectInfo/ProjectInfoItem";
 import TechStackImage from "@/components/ui/TechStackImage";
+import ErroredSection from "@/components/ui/error/ErroredSection";
 
 function ProjectInfo({projectId}: { projectId: string }) {
     const {data, isPending, isRefetching, isError, isRefetchError} = useProjectInfoSummary(projectId);
@@ -50,7 +51,12 @@ function ProjectInfo({projectId}: { projectId: string }) {
     }
 
     if (isDataPreparing) return <ProjectInfoSkeleton/>;
-    if (isDataError) return <div>데이터 조회에 실패했습니다.</div>;
+    if (isDataError) return (
+        <ErroredSection
+            className='w-full min-h-[200px] flex mobile:flex-col items-center justify-center tablet:mt-[40px] mobile:mt-[10px] text-3xl mobile:text-[24px] '>
+            ⚠️ 데이터 조회에 실패했습니다.
+        </ErroredSection>
+    );
 }
 
 export default ProjectInfo;
