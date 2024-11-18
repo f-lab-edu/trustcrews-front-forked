@@ -1,8 +1,6 @@
-import {MilestoneStatusCode, MilestoneStatusName} from "@/store/project/task/MilestoneStateStore";
 import {CREW_STATUS} from "@/utils/constant";
 import {PointTypeKey} from "@/app/project/@notice/_utils/type";
 import {TrustGradeNameType, TrustGradeValueType} from "@/app/project/@setting/_utils/type";
-import {ErrorHandle} from "@/app/api/_interceptor/error/utils";
 import {ProjectApplyStatusCode} from "@/service/project/apply";
 import {VoteStatusCode} from "@/service/project/alert/type";
 import {BoardPosition, ProjectSettingBoardData} from "@/service/project/setting/board";
@@ -155,7 +153,6 @@ export type ResponseBody<T> = {
     result: ResponseResult;
     message: string;
     data: T | null;
-    errorHandle?: ErrorHandle;
 }
 
 export type Paged<T> = {

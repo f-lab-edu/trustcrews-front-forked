@@ -4,7 +4,7 @@ import StyledLink from "@/components/ui/StyledLink";
 import ErrorPageContainer from "@/components/ui/error/ErrorPageContainer";
 import ErrorMessage from "@/components/ui/error/ErrorMessage";
 import {HttpStatus} from "@/app/api/_interceptor/utils/httpStatus";
-import {CustomInterceptorErrorCode} from "@/app/api/_interceptor/error/constants";
+import {GatewayErrorCode} from "@/app/api/_interceptor/error/constants";
 import {errorResponseMessage} from "@/app/api/_interceptor/error/utils";
 
 function Page(
@@ -13,7 +13,7 @@ function Page(
         searchParams
     }: {
         params: { slug: string }
-        searchParams: { 'error': CustomInterceptorErrorCode}
+        searchParams: { 'error': GatewayErrorCode }
     }) {
 
     const errorMessage = errorResponseMessage(searchParams.error);

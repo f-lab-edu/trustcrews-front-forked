@@ -2,8 +2,7 @@ import {cookies} from "next/headers";
 import {getRefreshToken} from "@/utils/common";
 import {COOKIE, getCookieValue} from "@/app/api/_interceptor/utils/cookieUtils";
 import {reqLogger, resLogger} from "@/app/api/_interceptor/utils/logger";
-import {GatewayError, ResponseError} from "@/app/api/_interceptor/error/classes";
-import {getErrorCodeFromResponse} from "@/app/api/_interceptor/error/utils";
+import {GatewayError} from "@/app/api/_interceptor/error/classes";
 import {baseURL} from "@/app/api/_interceptor/utils/baseURL";
 
 const userRefToken: Map<string, string> = new Map();
@@ -21,7 +20,9 @@ export async function refreshToken(): Promise<void> {
         setUserRefToken(userId, refreshToken);
     }
 
-    if (!userId || !refreshToken) throw new GatewayError("ESENDREQ", "No available userId or refreshToken");
+    if (!userId || !refreshToken) {
+        throw new GatewayError("ESENDREQ", "No available userId or refreshToken");
+    }
 
     const requestURL = `${baseURL}/api/user/token-reissue`;
     const requestMethod = "POST";
@@ -32,15 +33,15 @@ export async function refreshToken(): Promise<void> {
         body: JSON.stringify({userId}),
         headers: {
             "Content-Type": "application/json",
-            Cookie: `Refresh=${refreshToken}`,
+            Cookie: `Reresh=${refreshToken}`,
         },
         credentials: "include",
     });
 
     if (!tokenResponse.ok) { // 토큰 재발급 실패
-        const errorCode = await getErrorCodeFromResponse(tokenResponse);
-        resLogger.i(`${requestMethod} ${tokenResponse.status}: ${requestURL} - ${errorCode}`);
-        throw new ResponseError(errorCode);
+        // const errorCode = await getErrorCodeFromResponse(tokenResponse);
+        resLogger.i(`${requestMethod} ${tokenResponse.status}: ${requestURL}`);
+        throw new GatewayError('EAUTH', 'Failed to refresh token');
     }
 
     const {headers} = tokenResponse;
@@ -55,6 +56,6 @@ export async function refreshToken(): Promise<void> {
         setUserRefToken(userId, cookieStore.get(COOKIE.REF_TOKEN)!.value);
         resLogger.i(`TOKEN-REFRESH-SUCCESS`);
     } else {
-        throw new GatewayError("EPARSERES", "Token refresh response did not contain necessary headers");
+        throw new GatewayError("EAUTH", "Token refresh response did not contain necessary headers");
     }
 }

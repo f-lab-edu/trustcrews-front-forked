@@ -11,9 +11,9 @@ import {processPendingRequest} from "@/app/api/_interceptor/authApi/pendingReque
 import {COOKIE, getCookieValue} from "@/app/api/_interceptor/utils/cookieUtils";
 import {reqLogger, resLogger} from "@/app/api/_interceptor/utils/logger";
 import {returnFetchWrapper} from "@/app/api/_interceptor/authApi/returnFetchWrapper";
-import {GatewayError, ResponseError} from "@/app/api/_interceptor/error/classes";
-import {getErrorCodeFromResponse} from "@/app/api/_interceptor/error/utils";
+import {GatewayError} from "@/app/api/_interceptor/error/classes";
 import {baseURL} from "@/app/api/_interceptor/utils/baseURL";
+import {getErrorMessageFromResponse} from "@/app/api/_interceptor/error/utils";
 
 
 const authApi = returnFetchWrapper({
@@ -50,11 +50,10 @@ const authApi = returnFetchWrapper({
                 return response;
             }
 
-            const errorCode = await getErrorCodeFromResponse(response);
-
-            if (errorCode !== 'EXPIRED_TOKEN' && errorCode !== 'REFRESH_TOKEN_NOT_FOUND') {
-                resLogger.i(`${requestInit.method} ${response.status}:  ${requestArgs[0]} - ${errorCode}`);
-                throw new ResponseError(errorCode);
+            if(response.status !== 401){
+                const errorMessage = await getErrorMessageFromResponse(response);
+                resLogger.i(`${requestInit.method} ${response.status}:  ${requestArgs[0]} - ${errorMessage}`);
+                return response;
             }
 
             const userId = getCookieValue(COOKIE.USER_ID);
@@ -74,7 +73,7 @@ const authApi = returnFetchWrapper({
                                 }
                                 requestInit.headers = headers;
                             } catch (error: unknown) {
-                                new GatewayError('ESENDREQ', (error as Error).message);
+                               throw new GatewayError('ESENDREQ', (error as Error).message);
                             }
 
                             const retryResponse = await authApi(...requestArgs);

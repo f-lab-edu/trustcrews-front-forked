@@ -1,21 +1,12 @@
 import {ResponseBody} from "@/utils/type";
 import {COOKIE, deleteCookieValue, getCookieValue} from "@/app/api/_interceptor/utils/cookieUtils";
 import {deleteUserRefToken} from "@/app/api/_interceptor/authApi/refreshToken";
-import {
-    ErrorHandle,
-    errorHandleMethod,
-    ErrorHandlePage,
-    errorResponseMessage,
-    extractErrorCode,
-    getStatusByErrorCode,
-    isGatewayErrorCode
-} from "@/app/api/_interceptor/error/utils";
-import {CustomInterceptorErrorCode} from "@/app/api/_interceptor/error/constants";
+import {extractErrorCode} from "@/app/api/_interceptor/error/utils";
+import {GATEWAY_ERROR, GatewayErrorCode} from "@/app/api/_interceptor/error/constants";
 
 
 export type CustomResponseHeaderInit = HeadersInit & {
-    'X-Error-Handle'?: ErrorHandle,
-    'X-Error-Handle-Page'?: ErrorHandlePage
+    'X-Error-Instruction'?: 'REDIRECT' | 'MESSAGE' | 'NONE';
 };
 export type CustomResponseInit = ResponseInit & {
     headers: CustomResponseHeaderInit;
@@ -31,33 +22,25 @@ export class CustomResponse extends Response {
  * 커스텀 에러 Response 생성
  * @param errorCode
  */
-const errorResponse = (errorCode: CustomInterceptorErrorCode) => {
-    const status = getStatusByErrorCode(errorCode);
-    const message = errorResponseMessage(errorCode);
-    const errorHandle = errorHandleMethod(errorCode);
-
+const errorResponse = (errorCode: GatewayErrorCode) => {
     const responseBody: ResponseBody<null> = {
         result: 'fail',
-        message,
-        data: null,
-        errorHandle
+        message: GATEWAY_ERROR[errorCode].text,
+        data: null
     };
 
-    const headers: CustomResponseHeaderInit = {'X-Error-Handle': errorHandle};
-    if (errorHandle === 'errorPage') {
-        headers["X-Error-Handle-Page"] = `/error/${status}?error=${errorCode}`;
-    }
+    const headers: CustomResponseHeaderInit = {'X-Error-Instruction': 'NONE'};
 
-    return new CustomResponse(JSON.stringify(responseBody), {status, headers});
+    return new CustomResponse(JSON.stringify(responseBody), {status: GATEWAY_ERROR[errorCode].status, headers});
 }
 
 
 /**
- * 프로세스 수행 에러 or Response ok 아닐 때 커스텀 에러 Response 생성
+ * Gateway 에러 Response 생성
  * @param error
  */
 export const createErrorResponse = async (error: Error) => {
-    let errorCode:CustomInterceptorErrorCode = "EDEFAULT"
+    let errorCode:GatewayErrorCode = "EDEFAULT";
 
     try{
         errorCode = extractErrorCode(error);
@@ -65,13 +48,7 @@ export const createErrorResponse = async (error: Error) => {
         console.error((e as Error).cause);
     }
 
-    if(isGatewayErrorCode(errorCode)) console.error(error);
-
-    if (
-        isGatewayErrorCode(errorCode) ||
-        errorCode === 'EXPIRED_TOKEN' ||
-        errorCode === 'REFRESH_TOKEN_NOT_FOUND'
-    ) {
+    if (errorCode === 'EAUTH') {
         deleteCookieValue(COOKIE.ACS_TOKEN);
         deleteCookieValue(COOKIE.REF_TOKEN);
         deleteCookieValue(COOKIE.USER_ID);

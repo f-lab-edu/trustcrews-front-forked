@@ -1,22 +1,13 @@
-import {CustomInterceptorErrorCode, GatewayErrorCode, ResponseNotOKCode} from "@/app/api/_interceptor/error/constants";
+import {GATEWAY_ERROR, GatewayErrorCode} from "@/app/api/_interceptor/error/constants";
 
-export class CustomInterceptorError extends Error {
-    code: CustomInterceptorErrorCode;
+export class GatewayError extends Error {
+    code: GatewayErrorCode;
+    cause: string;
 
-    constructor(code: CustomInterceptorErrorCode, message: string) {
-        super(message);
+    constructor(code: GatewayErrorCode, cause:string) {
+        super(GATEWAY_ERROR[code].text);
         this.code = code;
+        this.cause = cause;
     }
 }
 
-export class GatewayError extends CustomInterceptorError {
-    constructor(code: GatewayErrorCode, message: string) {
-        super(code, message);
-    }
-}
-
-export class ResponseError extends CustomInterceptorError {
-    constructor(code: ResponseNotOKCode) {
-        super(code, "Response not ok");
-    }
-}

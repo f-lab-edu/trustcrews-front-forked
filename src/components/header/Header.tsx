@@ -3,18 +3,22 @@ import React, {useEffect} from 'react';
 import Image from 'next/image';
 import logo from '../../../public/images/logo.png';
 import Link from "next/link";
-import User from "./User/User";
 import RegisterNav from "@/components/header/RegisterNav";
 import useClientMount from "@/hooks/useClientMount";
 import {useRecoilState} from "recoil";
 import {userStateStore} from "@/store/user/UserStateStore";
 import {getCookie, hasCookie} from "cookies-next";
-import UserMenuSkeleton from "@/components/ui/skeleton/header/UserMenuSkeleton";
 import LoginNav from "@/components/header/User/LoginNav";
 import {UserMenu} from "@/components/header/User";
-import UserGuide from "@/components/main/userGuide/UserGuide";
+import {useQuery} from "@tanstack/react-query";
+import {ResponseBody, UserBasicInfo} from "@/utils/type";
+import {getSimpleUser} from "@/service/user/user";
+import UserMenuSkeleton from "@/components/ui/skeleton/header/UserMenuSkeleton";
+import {isQueryDataReady} from "@/hooks/useProjectInfoSummary";
+import {useRouter} from "next/navigation";
 
 function Header() {
+    const router = useRouter();
     const mounted = useClientMount();
     const [userIdState, setUserIdState] = useRecoilState(userStateStore);
 
@@ -27,6 +31,25 @@ function Header() {
             setUserIdState(null);
         }
     }, [userIdState, setUserIdState]);
+
+
+    const {data, isPending, isRefetching, isError, isRefetchError} = useQuery<ResponseBody<UserBasicInfo>, Error, ResponseBody<UserBasicInfo>>(
+        {
+            queryKey: ['simpleUserInfo'],
+            queryFn: getSimpleUser,
+            staleTime: 0,
+            enabled: userIdState !== null
+        }
+    );
+    const isUserDataPreparing = isPending || isRefetching;
+    const isUserDataError = isError || isRefetchError;
+    const isUserDataReady = isQueryDataReady(isUserDataPreparing, isUserDataError, data);
+
+    useEffect(() => {
+        if(isUserDataError) router.replace("/login");
+        setUserIdState(null);
+    },[isUserDataError, router, setUserIdState])
+
 
 
     return mounted && (
@@ -56,7 +79,15 @@ function Header() {
                 <div id='top-navigation-main' className='flex items-center'>
                     <RegisterNav/>
                     <div>
-                        {userIdState === null ? <LoginNav/> : <UserMenu/>}
+                        {
+                            userIdState === null || isUserDataError
+                                ? <LoginNav/>
+                                : (
+                                    isUserDataReady
+                                        ? <UserMenu data={data}/>
+                                        : <UserMenuSkeleton/>
+                                )
+                        }
                     </div>
                 </div>
             </div>

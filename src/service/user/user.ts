@@ -1,4 +1,4 @@
-import {requestWithAuth} from "@/service/project/request";
+import {handleResponse, requestWithAuth} from "@/service/project/request";
 import {ResponseBody} from "@/utils/type";
 
 const publicURL = process.env.NEXT_PUBLIC_URL;
@@ -47,19 +47,7 @@ export const updateUser = async (
         body: formData
     });
 
-    if (res.ok) {
-        return res.json();
-    } else {
-        const data: ResponseBody<null> = await res.json();
-        const errorHandle = data.errorHandle!;
-
-        if (errorHandle === 'errorPage') {
-            const path = res.headers.get('X-Error-Handle-Page') as string;
-            window.location.replace(path);
-        }
-
-        return data;
-    }
+    return await handleResponse(res);
 };
 
 /**

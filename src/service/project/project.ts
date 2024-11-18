@@ -20,29 +20,6 @@ export async function getMyProjectList(pageIndex: number, itemCount: number) {
 
 
 /**
- * 프로젝트 상세 조회
- * @param projectId
- * @param userId
- */
-export async function getMyProjectDetail(projectId: string | bigint | null, userId: string | bigint | null) {
-    if(!projectId || !userId){
-        const resBody:ResponseBody<null> = {
-            result:'fail',
-            message: 'Invalid Parameter Error',
-            data: null,
-            errorHandle:'retry'
-        }
-        return resBody;
-    }
-
-    const _projectId = typeof projectId === 'string' ? BigInt(projectId) : projectId;
-    const _userId = typeof userId === 'string' ? BigInt(userId) : userId;
-
-    return await requestWithAuth('GET', `/api/project/detail?projectId=${_projectId}&userId=${_userId}`)
-}
-
-
-/**
  * 프로젝트 종료
  * @param projectId
  */
