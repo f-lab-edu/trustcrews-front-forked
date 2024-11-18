@@ -33,13 +33,12 @@ export async function refreshToken(): Promise<void> {
         body: JSON.stringify({userId}),
         headers: {
             "Content-Type": "application/json",
-            Cookie: `Reresh=${refreshToken}`,
+            Cookie: `Refresh=${refreshToken}`,
         },
         credentials: "include",
     });
 
     if (!tokenResponse.ok) { // 토큰 재발급 실패
-        // const errorCode = await getErrorCodeFromResponse(tokenResponse);
         resLogger.i(`${requestMethod} ${tokenResponse.status}: ${requestURL}`);
         throw new GatewayError('EAUTH', 'Failed to refresh token');
     }
