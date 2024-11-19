@@ -6,6 +6,7 @@ import {useRouter} from "next/navigation";
 import {useResetRecoilState, useSetRecoilState} from "recoil";
 import {snackbarState} from "@/store/CommonStateStore";
 import {createPostStateStore, createProjectStateStore} from "@/store/register/RegisterPostStateStore";
+import {DEFAULT_SEARCH_POST_PARAM} from "@/app/InitialPostsDataProvider";
 
 export default function useCreatePost() {
     const resetPostFields = useResetRecoilState(createPostStateStore);
@@ -23,9 +24,10 @@ export default function useCreatePost() {
                 setSnackbar({show: true, type: "SUCCESS", content: message});
                 resetPostFields();
                 resetProjectFields();
-                await queryClient.invalidateQueries({queryKey: ['postList']});
+                const {techStacks, position, keyword, page} = DEFAULT_SEARCH_POST_PARAM;
+                await queryClient.invalidateQueries({queryKey: ['postList', techStacks, position, keyword, page], refetchType:'all'});
                 await queryClient.invalidateQueries({queryKey: ['myProjectList']});
-                router.push('/');
+                router.replace('/');
             } else {
                 setSnackbar({show: true, type: "ERROR", content: message});
             }
@@ -35,5 +37,5 @@ export default function useCreatePost() {
         }
     });
 
-    return {createPost, isCreating:isPending}
+    return {createPost, isCreating: isPending}
 }

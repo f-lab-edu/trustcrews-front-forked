@@ -30,7 +30,6 @@ const PostList = () => {
             keyword: searchValue,
             page: pageNumber
         }),
-        staleTime: 0
     });
     if (isLoading || isError) return <PostListSkeleton itemCount={8}/>;
 
