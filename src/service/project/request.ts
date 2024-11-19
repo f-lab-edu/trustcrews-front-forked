@@ -9,20 +9,20 @@ export const headers: HeadersInit = {
 };
 
 
-export const handleResponse = async (res: Response) => {
+export async function handleResponse(res: Response) {
     if (res.ok) return res.json();
 
     const data: ResponseBody<null> = await res.json();
     const errorInstruction = res.headers.get("X-Error-Instruction");
 
     if (!errorInstruction || errorInstruction === "NONE") {
-        throw new Error(data.message);
+        throw new Error();
     }
 
     if (errorInstruction === "REDIRECT") {
         const errorRoute = `/error/${res.status}?error=${data.message}`;
         window.location.assign(errorRoute);
-    }else if(errorInstruction === "MESSAGE"){
+    } else if (errorInstruction === "MESSAGE") {
         return data;
     }
 
@@ -47,13 +47,6 @@ export async function requestWithAuth(method: HTTP_METHOD, url: string, data?: R
 
     const res = await fetch(`${publicURL}${url}`, requestInit);
     return await handleResponse(res);
-    //
-    // try {
-    //     const res = await fetch(`${publicURL}${url}`, requestInit);
-    //     return await handleResponse(res);
-    // } catch (e: unknown) {
-    //     handleError(e as Error);
-    // }
 }
 
 
