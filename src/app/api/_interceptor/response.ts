@@ -29,7 +29,10 @@ const errorResponse = (errorCode: GatewayErrorCode) => {
         data: null
     };
 
-    const headers: CustomResponseHeaderInit = {'X-Error-Instruction': 'NONE'};
+    let headers: CustomResponseHeaderInit = {'X-Error-Instruction': 'REDIRECT'};
+    if(GATEWAY_ERROR[errorCode].status === 401) {
+         headers = {'X-Error-Instruction': 'NONE'};
+    }
 
     return new CustomResponse(JSON.stringify(responseBody), {status: GATEWAY_ERROR[errorCode].status, headers});
 }
