@@ -16,7 +16,7 @@ export type ProjectSettingInfoData = {
  * @param projectId
  */
 export const getProjectSettingInfo = async (projectId: bigint) => {
-    return await request("GET", `/api/project/setting/info?projectId=${1004}`);
+    return await request("GET", `/api/project/setting/info?projectId=${projectId}`);
 }
 
 export type ProjectSettingInfoUpdReqData = {
