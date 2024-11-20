@@ -10,10 +10,8 @@ import {isValidEmail} from "@/utils/common";
 import {isEqual} from "lodash";
 import {snackbarState} from "@/store/CommonStateStore";
 import {useQueryClient} from "@tanstack/react-query";
-import {userStateStore} from "@/store/user/UserStateStore";
 
 function LoginForm() {
-    const setUserIdState = useSetRecoilState(userStateStore);
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -52,7 +50,7 @@ function LoginForm() {
                 const {data: userId, result, message} = response;
 
                 if (isEqual(result, "success")) {
-                    setUserIdState(userId);
+                    // setUserIdState(userId);
                     const invalidateUserInfo = queryClient.invalidateQueries({queryKey: ['simpleUserInfo']});
                     const invalidateMyProjectList = queryClient.invalidateQueries({queryKey: ['myProjectList']});
                     const invalidateProjectNotice = queryClient.invalidateQueries({queryKey: ['userProjectNotice']});

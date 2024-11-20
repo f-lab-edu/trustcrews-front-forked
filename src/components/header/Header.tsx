@@ -1,58 +1,18 @@
 'use client';
-import React, {useEffect} from 'react';
+import React from 'react';
 import Image from 'next/image';
 import logo from '../../../public/images/logo.png';
 import Link from "next/link";
 import RegisterNav from "@/components/header/RegisterNav";
-import useClientMount from "@/hooks/useClientMount";
-import {useRecoilState} from "recoil";
-import {userStateStore} from "@/store/user/UserStateStore";
-import {getCookie, hasCookie} from "cookies-next";
+import {hasCookie} from "cookies-next";
 import LoginNav from "@/components/header/User/LoginNav";
 import {UserMenu} from "@/components/header/User";
-import {useQuery} from "@tanstack/react-query";
-import {ResponseBody, UserBasicInfo} from "@/utils/type";
-import {getSimpleUser} from "@/service/user/user";
-import UserMenuSkeleton from "@/components/ui/skeleton/header/UserMenuSkeleton";
-import {isQueryDataReady} from "@/hooks/useProjectInfoSummary";
-import {useRouter} from "next/navigation";
+import useClientMount from "@/hooks/useClientMount";
 
 function Header() {
-    const router = useRouter();
     const mounted = useClientMount();
-    const [userIdState, setUserIdState] = useRecoilState(userStateStore);
 
-    useEffect(() => {
-        if (userIdState === null && hasCookie("user_id")) {
-            setUserIdState(getCookie("user_id") as string);
-        }
-
-        if (userIdState !== null && !hasCookie("user_id")) {
-            setUserIdState(null);
-        }
-    }, [userIdState, setUserIdState]);
-
-
-    const {data, isPending, isRefetching, isError, isRefetchError} = useQuery<ResponseBody<UserBasicInfo>, Error, ResponseBody<UserBasicInfo>>(
-        {
-            queryKey: ['simpleUserInfo'],
-            queryFn: getSimpleUser,
-            staleTime: 0,
-            enabled: userIdState !== null
-        }
-    );
-    const isUserDataPreparing = isPending || isRefetching;
-    const isUserDataError = isError || isRefetchError;
-    const isUserDataReady = isQueryDataReady(isUserDataPreparing, isUserDataError, data);
-
-    useEffect(() => {
-        if(isUserDataError) router.replace("/login");
-        setUserIdState(null);
-    },[isUserDataError, router, setUserIdState])
-
-
-
-    return mounted && (
+    return (
         <header className='flex flex-col'>
             <div className='flex items-center justify-between h-[80px] mobile:h-[65px] my-1'>
                 <div id='top-navigation-wrap'>
@@ -80,13 +40,9 @@ function Header() {
                     <RegisterNav/>
                     <div>
                         {
-                            userIdState === null || isUserDataError
-                                ? <LoginNav/>
-                                : (
-                                    isUserDataReady
-                                        ? <UserMenu data={data}/>
-                                        : <UserMenuSkeleton/>
-                                )
+                            mounted && hasCookie("user_id")
+                                ? <UserMenu />
+                                : <LoginNav/>
                         }
                     </div>
                 </div>
