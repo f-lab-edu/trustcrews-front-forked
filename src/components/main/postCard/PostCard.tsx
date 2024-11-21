@@ -109,6 +109,7 @@ const PostCard = ({postInfo}: { postInfo: PostCardInfo }) => {
                                                 stackName={techStackName}
                                                 width={30}
                                                 height={30}/>
+                                            <span className='sr-only'>{techStackName}</span>
                                         </li>
                                     ))
                                 }
@@ -151,7 +152,6 @@ const PostCard = ({postInfo}: { postInfo: PostCardInfo }) => {
                         </section>
                     </footer>
                 </article>
-
             </Link>
         </div>
     );
