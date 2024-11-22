@@ -4,7 +4,7 @@ import CommonPagination from "@/components/ui/CommonPagination"
 import PostCard from "../postCard/PostCard"
 import {useRecoilValue} from "recoil";
 import React, {useState} from "react";
-import {useQuery} from "@tanstack/react-query";
+import {useQuery, useQueryClient} from "@tanstack/react-query";
 import {PageResponseBody, PostCardInfo} from "@/utils/type";
 import {getPostList} from "@/service/post/post";
 import {postSearchValue, selectedPositionState, selectedTechStackState} from "@/store/post/PostStateStore";

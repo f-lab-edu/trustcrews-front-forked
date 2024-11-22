@@ -143,13 +143,13 @@ const PostCard = ({postInfo}: { postInfo: PostCardInfo }) => {
                                 </div>
                             </article>
                         </section>
-                        <section>
-                            <h4 className='sr-only'>게시글 조회수</h4>
-                            <article className='flex'>
-                                <BsEyeFill aria-hidden={true} className="w-4 h-4 self-center text-grey500"/>
-                                <p className="ml-2 text-base text-grey800">{boardPageView}</p>
-                            </article>
-                        </section>
+                        {/*<section>*/}
+                        {/*    <h4 className='sr-only'>게시글 조회수</h4>*/}
+                        {/*    <article className='flex'>*/}
+                        {/*        <BsEyeFill aria-hidden={true} className="w-4 h-4 self-center text-grey500"/>*/}
+                        {/*        <p className="ml-2 text-base text-grey800">{boardPageView}</p>*/}
+                        {/*    </article>*/}
+                        {/*</section>*/}
                     </footer>
                 </article>
             </Link>
