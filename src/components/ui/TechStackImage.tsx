@@ -11,6 +11,7 @@ interface TechStackImageProps {
 }
 
 function TechStackImage({stackName, width, height}: TechStackImageProps) {
+    const mounted = useClientMount();
     const fileName = stackName.toLowerCase().replace(".", "");
 
     const isMobile = useMediaQuery({maxWidth: 700});
@@ -18,6 +19,8 @@ function TechStackImage({stackName, width, height}: TechStackImageProps) {
 
     const responsiveWidth = isMobile ? 20 : (isDesktop ? 32 : 26);
     const responsiveHeight = isMobile ? 20 : (isDesktop ? 32 : 26);
+
+    if(!mounted) return null;
 
     return (
         <Image
