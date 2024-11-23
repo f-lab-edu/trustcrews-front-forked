@@ -22,13 +22,13 @@ const UserGuide = () => {
             </span>
             <nav aria-labelledby='ally-userGuide'>
                 <ul role='none' className='flex flex-wrap pc:h-[50px] items-center py-4'>
-                    <UserGuideNavLink href='https://quirky-log-8a0.notion.site/103ddc74b8648090aee4e3a385cea5c2?pvs=4'>
+                    <UserGuideNavLink href='https://www.notion.so/eunsunkim/103ddc74b8648090aee4e3a385cea5c2?pvs=4'>
                         프로젝트 시작하기
                     </UserGuideNavLink>
-                    <UserGuideNavLink href='https://quirky-log-8a0.notion.site/17b9f99de14d4bc2b54ed8057ae95faf?pvs=4'>
+                    <UserGuideNavLink href='https://www.notion.so/eunsunkim/17b9f99de14d4bc2b54ed8057ae95faf?pvs=4'>
                         프로젝트 참여하기
                     </UserGuideNavLink>
-                    <UserGuideNavLink href='https://quirky-log-8a0.notion.site/104ddc74b86480b6ae0ee50670d21691?pvs=4'>
+                    <UserGuideNavLink href='https://www.notion.so/eunsunkim/104ddc74b86480b6ae0ee50670d21691?pvs=4'>
                         신뢰 레벨 시스템
                     </UserGuideNavLink>
                 </ul>
