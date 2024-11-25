@@ -1,6 +1,6 @@
 'use client';
 import {useQuery} from "@tanstack/react-query";
-import {getTechStackList as getTechStackListAPI} from "@/service/setting";
+import {getTechStackList as getTechStackListAPI} from "@/service/setting/setting";
 import {ResponseBody, TechStackItem} from "@/utils/type";
 import {useSetRecoilState} from "recoil";
 import {snackbarState} from "@/store/CommonStateStore";

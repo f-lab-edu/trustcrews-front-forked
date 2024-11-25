@@ -1,6 +1,6 @@
 'use client';
 import {useQuery} from "@tanstack/react-query";
-import {getPositionList as getPositionListAPI} from "@/service/setting";
+import {getPositionList as getPositionListAPI} from "@/service/setting/setting";
 import {PositionItem, ResponseBody} from "@/utils/type";
 import {useSetRecoilState} from "recoil";
 import {snackbarState} from "@/store/CommonStateStore";

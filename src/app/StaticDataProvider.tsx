@@ -5,7 +5,7 @@ import {
     getTechStackCategoryList,
     getTechStackListWithCategory,
     getTechStackList as getTechStackListAPI
-} from "@/service/setting";
+} from "@/service/setting/setting";
 
 async function StaticDataProvider({children}: { children: React.ReactNode }) {
     const queryClient = new QueryClient();

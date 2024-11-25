@@ -1,5 +1,5 @@
 import {useQuery} from "@tanstack/react-query";
-import {getCrewAuthOptions} from "@/service/setting";
+import {getCrewAuthOptions} from "@/service/setting/setting";
 import {PageResponseBody, ProjectAuthMap, ResponseBody} from "@/utils/type";
 
 /**

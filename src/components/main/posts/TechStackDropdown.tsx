@@ -6,7 +6,7 @@ import {BsChevronDown} from "@react-icons/all-files/bs/BsChevronDown";
 import TechStackDropdownList from "../../ui/dropdown/TechStackDropdownList";
 import {useQuery} from "@tanstack/react-query";
 import {ResponseBody, TechStackCategory, TechStackWithCategory} from "@/utils/type";
-import {getTechStackCategoryList, getTechStackListWithCategory} from "@/service/setting";
+import {getTechStackCategoryList, getTechStackListWithCategory} from "@/service/setting/setting";
 import {selectedTechStackState} from "@/store/post/PostStateStore";
 
 
