@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {ProjectInfoSkeleton} from "@/components/ui/skeleton/project/task";
-import useProjectInfoSummary, {isQueryDataReady} from "@/hooks/useProjectInfoSummary";
+import useProjectInfoSummary, {isQueryDataReady} from "@/hooks/common/useProjectInfoSummary";
 import ProjectInfoItem from "@/components/project/layout/projectInfo/ProjectInfoItem";
 import TechStackImage from "@/components/ui/TechStackImage";
 import ErroredSection from "@/components/ui/error/ErroredSection";

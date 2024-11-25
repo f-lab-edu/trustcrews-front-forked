@@ -8,7 +8,7 @@ import {PostInfo, ResponseBody} from "@/utils/type";
 import {getPost} from "@/service/post/post";
 import PostDetailSkeleton from "@/components/ui/skeleton/postDetail/PostDetailSkeleton";
 import JoinProject from "@/components/postDetail/JoinProject";
-import useProjectInfoSummary from "@/hooks/useProjectInfoSummary";
+import useProjectInfoSummary from "@/hooks/common/useProjectInfoSummary";
 import {numStrToBigInt} from "@/utils/common";
 import {useResetRecoilState} from "recoil";
 import {selectRecruitPositionState} from "@/store/postDetail/PostDetailStateStore";

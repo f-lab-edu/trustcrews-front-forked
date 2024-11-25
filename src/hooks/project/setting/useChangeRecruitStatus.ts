@@ -3,7 +3,7 @@
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {changeRecruitmentStatus as changeRecruitmentStatusAPI} from "@/service/post/post";
 import {isEqual} from "lodash";
-import useSnackbar from "@/hooks/useSnackbar";
+import useSnackbar from "@/hooks/common/useSnackbar";
 import {useResetRecoilState} from "recoil";
 import {confirmModalState} from "@/store/CommonStateStore";
 

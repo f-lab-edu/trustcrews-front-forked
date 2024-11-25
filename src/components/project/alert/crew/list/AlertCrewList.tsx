@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import useAlertList from "@/hooks/useAlertList";
+import useAlertList from "@/hooks/project/useAlertList";
 import {AlertType} from "@/service/project/alert/constant";
 import AlertListLoader from "@/components/project/alert/AlertListLoader";
 import CommonPagination from "@/components/ui/CommonPagination";

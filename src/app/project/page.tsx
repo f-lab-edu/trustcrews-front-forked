@@ -3,7 +3,7 @@
 import React, {useEffect} from 'react';
 import ProjectInfo from "@/components/project/layout/projectInfo/ProjectInfo";
 import ProjectNavTab from "@/components/project/layout/ProjectNavTab";
-import useSetProjectIdState from "@/hooks/useSetProjectIdState";
+import useSetProjectIdState from "@/hooks/common/useSetProjectIdState";
 import {useQueryClient} from "@tanstack/react-query";
 
 function ProjectPage({searchParams: {projectId, userId}}: { searchParams: { projectId: string, userId: string } }) {

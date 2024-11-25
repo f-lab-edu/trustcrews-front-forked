@@ -10,7 +10,7 @@ import {getPostList} from "@/service/post/post";
 import {postSearchValue, selectedPositionState, selectedTechStackState} from "@/store/post/PostStateStore";
 import {ITEM_COUNT, PAGE_RANGE} from "@/utils/constant";
 import PostListSkeleton from "@/components/main/PostListSkeleton";
-import {isQueryDataReady} from "@/hooks/useProjectInfoSummary";
+import {isQueryDataReady} from "@/hooks/common/useProjectInfoSummary";
 import ErroredSection from "@/components/ui/error/ErroredSection";
 
 const PostList = () => {

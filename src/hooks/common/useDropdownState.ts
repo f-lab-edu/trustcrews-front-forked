@@ -1,5 +1,4 @@
 import {useEffect, useRef, useState} from "react";
-import {PositionItem} from "@/utils/type";
 
 export default function useDropdownState(){
     const [openDropdown, setOpenDropdown] = useState(false);

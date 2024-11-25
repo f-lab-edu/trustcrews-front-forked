@@ -1,6 +1,6 @@
 'use client';
 import React, {Fragment} from 'react';
-import useProjectCrewList from "@/hooks/useProjectCrewList";
+import useProjectCrewList from "@/hooks/project/crew/useProjectCrewList";
 import {useRecoilValue} from "recoil";
 import {Listbox, Transition} from "@headlessui/react";
 import {bigIntToString, classNames, numStrToBigInt} from "@/utils/common";

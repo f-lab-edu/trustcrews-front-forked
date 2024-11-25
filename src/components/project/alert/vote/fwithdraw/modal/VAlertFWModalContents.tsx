@@ -12,9 +12,9 @@ import {VoteFWReqData, VoteOptionCode} from "@/service/project/vote/type";
 import {useRecoilValue} from "recoil";
 import {projectIdState} from "@/store/project/ProjectInfoStateStore";
 import {numStrToBigInt} from "@/utils/common";
-import useVoteFwithdraw from "@/hooks/useVoteFwithdraw";
+import useVoteFwithdraw from "@/hooks/project/useVoteFwithdraw";
 import VAlertFwModalSkeleton from "@/components/ui/skeleton/project/alert/VAlertFWModalSkeleton";
-import useCurrentUserPMAuth from "@/hooks/useCurrentUserPMAuth";
+import useCurrentUserPMAuth from "@/hooks/project/useCurrentUserPMAuth";
 import VoteBar from "@/components/ui/votebar/VoteBar";
 
 type VAlertFWModalContentsProps = {

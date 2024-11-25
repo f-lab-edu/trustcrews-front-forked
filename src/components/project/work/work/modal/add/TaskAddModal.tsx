@@ -1,8 +1,8 @@
 import React from 'react';
 import {useRecoilValue, useResetRecoilState} from "recoil";
 import {taskAddModalDataStateStore, taskAddModalStateStore, TaskModalType} from "@/store/project/task/TaskStateStore";
-import useCreateTask from "@/hooks/useCreateTask";
-import useModalPortalElement from "@/hooks/useModalPortalElement";
+import useCreateTask from "@/hooks/project/task/useCreateTask";
+import useModalPortalElement from "@/hooks/common/useModalPortalElement";
 import {createPortal} from "react-dom";
 import Modal from "@/components/ui/Modal";
 import TaskDate from "@/components/project/work/work/modal/TaskDate";

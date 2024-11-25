@@ -4,7 +4,7 @@ import React from 'react';
 import DropDownWithIcon from "@/components/ui/DropDownWithIcon";
 import {FaChevronDown} from "@react-icons/all-files/fa/FaChevronDown";
 import {DropDownItem} from "@/utils/type";
-import useLogout from "@/hooks/useLogout";
+import useLogout from "@/hooks/user/useLogout";
 
 function UserMenuDropdown() {
     const {logout} = useLogout();

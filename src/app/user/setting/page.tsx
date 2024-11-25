@@ -2,8 +2,8 @@
 import React, {Suspense, useEffect, useState} from "react";
 import ProfileForm from "@/components/user/profile/ProfileForm";
 import ProfileFormSkeleton from "@/components/user/profile/ProfileFormSkeleton";
-import useClientMount from "@/hooks/useClientMount";
-import {useProfileInfo} from "@/hooks/useProfileInfo";
+import useClientMount from "@/hooks/common/useClientMount";
+import {useProfileInfo} from "@/hooks/user/useProfileInfo";
 
 function UserSettingPage() {
     const {data, isFetching} = useProfileInfo();

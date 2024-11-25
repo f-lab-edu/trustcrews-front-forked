@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import useDropdownState from "@/hooks/useDropdownState";
+import useDropdownState from "@/hooks/common/useDropdownState";
 import {useRecoilState} from "recoil";
 import {selectRecruitPositionState} from "@/store/postDetail/PostDetailStateStore";
 import {PostDetailPosition} from "@/utils/type";

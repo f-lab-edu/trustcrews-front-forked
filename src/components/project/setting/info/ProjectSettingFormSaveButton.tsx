@@ -4,7 +4,7 @@ import React from 'react';
 import Button from "@/components/ui/Button";
 import {useRecoilValue} from "recoil";
 import {projectSettingInfoStateStore} from "@/store/project/setting/ProjectSettingFormStateStore";
-import useSnackbar from "@/hooks/useSnackbar";
+import useSnackbar from "@/hooks/common/useSnackbar";
 import {
     ProjectSettingInfoData,
     ProjectSettingInfoUpdReqData,

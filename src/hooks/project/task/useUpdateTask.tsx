@@ -4,7 +4,7 @@ import {TaskModifyReqData, updateTask as updateTaskAPI} from "@/service/project/
 import {useResetRecoilState, useSetRecoilState} from "recoil";
 import {snackbarState} from "@/store/CommonStateStore";
 import {TaskModifyForm} from "@/app/project/@task/_utils/type";
-import useSnackbar from "@/hooks/useSnackbar";
+import useSnackbar from "@/hooks/common/useSnackbar";
 
 function useUpdateTask() {
     const setSnackbar = useSetRecoilState(snackbarState);

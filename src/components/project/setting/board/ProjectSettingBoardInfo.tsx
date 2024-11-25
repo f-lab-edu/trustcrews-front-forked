@@ -5,7 +5,7 @@ import {
     projectSettingBoardInfoSelector,
     projectSettingBoardInfoStateStore
 } from "@/store/project/setting/ProjectSettingFormStateStore";
-import useProjectSettingBoardInfo from "@/hooks/useProjectSettingBoardInfo";
+import useProjectSettingBoardInfo from "@/hooks/project/setting/useProjectSettingBoardInfo";
 import Title from "@/components/project/setting/board/Title";
 import BoardPositions from "@/components/project/setting/board/BoardPositions";
 import Contact from "@/components/project/setting/board/Contact";

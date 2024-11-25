@@ -3,7 +3,7 @@
 import React, {useEffect} from 'react';
 import Tasks from "@/components/project/work/work/Tasks";
 import TaskSectionHeader from "@/components/project/work/TaskSectionHeader";
-import {useMilestones} from "@/hooks/useMilestones";
+import {useMilestones} from "@/hooks/project/task/useMilestones";
 import {TaskSectionSkeleton} from "@/components/ui/skeleton/project/task";
 import {milestoneActiveStateStore} from "@/store/project/task/MilestoneStateStore";
 import {useRecoilState} from "recoil";

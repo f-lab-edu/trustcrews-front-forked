@@ -1,9 +1,9 @@
 import React from 'react';
 import {getCookie} from "cookies-next";
 import {PostInfo} from "@/utils/type";
-import useJoinProject from "@/hooks/useJoinProject";
+import useJoinProject from "@/hooks/post/useJoinProject";
 import Button from "@/components/ui/Button";
-import useSnackbar from "@/hooks/useSnackbar";
+import useSnackbar from "@/hooks/common/useSnackbar";
 import {useRecoilValue, useSetRecoilState} from "recoil";
 import {confirmModalState} from "@/store/CommonStateStore";
 import {selectRecruitPositionState} from "@/store/postDetail/PostDetailStateStore";

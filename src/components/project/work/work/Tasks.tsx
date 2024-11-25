@@ -4,12 +4,12 @@ import React, {useState} from 'react';
 import TaskCard from "@/components/project/work/work/TaskCard";
 import {DataId} from "@/utils/type";
 import CommonPagination from "@/components/ui/CommonPagination";
-import useTasks from "@/hooks/useTasks";
+import useTasks from "@/hooks/project/task/useTasks";
 import TasksSkeleton from "@/components/ui/skeleton/project/task/TasksSkeleton";
 import {ITEM_COUNT} from "@/utils/constant";
 import {useRecoilValue} from "recoil";
 import {milestoneActiveStateStore} from "@/store/project/task/MilestoneStateStore";
-import useCurrentUserPMAuth from "@/hooks/useCurrentUserPMAuth";
+import useCurrentUserPMAuth from "@/hooks/project/useCurrentUserPMAuth";
 
 
 function Tasks({projectId, milestoneId}: { projectId: DataId, milestoneId:bigint }) {

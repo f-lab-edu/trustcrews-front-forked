@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {BsChevronDown} from "@react-icons/all-files/bs/BsChevronDown";
-import useDropdownState from "@/hooks/useDropdownState";
-import {usePositionList} from "@/hooks/usePositionList";
+import useDropdownState from "@/hooks/common/useDropdownState";
+import {usePositionList} from "@/hooks/common/usePositionList";
 import {useRecoilState} from "recoil";
 import {selectedPositionState} from "@/store/post/PostStateStore";
 import {compareItems} from "@/app/_boardUtil/common";

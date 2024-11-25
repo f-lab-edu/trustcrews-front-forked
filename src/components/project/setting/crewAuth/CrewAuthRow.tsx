@@ -9,7 +9,7 @@ import {
     updateProjectSettingCrewAuth as updateProjectSettingCrewAuthAPI
 } from "@/service/project/setting/crewAuth";
 import {numStrToBigInt} from "@/utils/common";
-import useSnackbar from "@/hooks/useSnackbar";
+import useSnackbar from "@/hooks/common/useSnackbar";
 import CrewAuthSelector from "@/components/project/setting/crewAuth/CrewAuthSelector";
 
 function CrewAuthRow({crew, projectId, authMap}: { crew: ProjectMember, projectId: string, authMap: ProjectAuthMap }) {

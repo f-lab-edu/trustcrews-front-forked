@@ -6,12 +6,12 @@ import Avatar from '@/components/ui/Avatar';
 import {useQuery} from "@tanstack/react-query";
 import {getSimpleUser} from "@/service/user/user";
 import UserMenuSkeleton from "@/components/ui/skeleton/header/UserMenuSkeleton";
-import useLogout from "@/hooks/useLogout";
+import useLogout from "@/hooks/user/useLogout";
 import {FaChevronDown} from "@react-icons/all-files/fa/FaChevronDown";
 import {Menu, Transition} from "@headlessui/react";
 import Link from "next/link";
 import {classNames} from "@/utils/common";
-import {isQueryDataReady} from "@/hooks/useProjectInfoSummary";
+import {isQueryDataReady} from "@/hooks/common/useProjectInfoSummary";
 import {hasCookie} from "cookies-next";
 import {useRouter} from "next/navigation";
 

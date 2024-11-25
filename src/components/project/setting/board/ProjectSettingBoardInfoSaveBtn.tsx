@@ -8,7 +8,7 @@ import Button from "@/components/ui/Button";
 import {useQueryClient} from "@tanstack/react-query";
 import {projectSettingBoardInfoStateStore} from "@/store/project/setting/ProjectSettingFormStateStore";
 import {useRecoilValue} from "recoil";
-import useSnackbar from "@/hooks/useSnackbar";
+import useSnackbar from "@/hooks/common/useSnackbar";
 import {useMutation} from "@tanstack/react-query";
 
 function ProjectSettingBoardInfoSaveBtn({initData}: { initData: ProjectSettingBoardData }) {

@@ -1,6 +1,6 @@
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {useResetRecoilState} from "recoil";
-import useSnackbar from "@/hooks/useSnackbar";
+import useSnackbar from "@/hooks/common/useSnackbar";
 import {taskModalState, taskModModalDataStateStore, taskModModalStateStore} from "@/store/project/task/TaskStateStore";
 import {workComplete, WorkCompleteRequestDto} from "@/service/project/confirm";
 

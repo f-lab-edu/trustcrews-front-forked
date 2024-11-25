@@ -5,7 +5,7 @@ import {getCookie} from "cookies-next";
 import {isEqual} from "lodash";
 import {useSetRecoilState} from "recoil";
 import {confirmModalState} from "@/store/CommonStateStore";
-import useChangeRecruitStatus from "@/hooks/useChangeRecruitStatus";
+import useChangeRecruitStatus from "@/hooks/project/setting/useChangeRecruitStatus";
 
 function RecruitStatusButton({boardInfo}: { boardInfo: PostInfo }) {
     const setModalState = useSetRecoilState(confirmModalState);

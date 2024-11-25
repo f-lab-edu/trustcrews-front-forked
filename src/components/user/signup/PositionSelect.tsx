@@ -1,5 +1,5 @@
 import Select from "@/components/ui/selector/Select";
-import {usePositionList} from "@/hooks/usePositionList";
+import {usePositionList} from "@/hooks/common/usePositionList";
 import {PositionId, SelectItem} from "@/utils/type";
 import SelectSkeleton from "@/components/ui/skeleton/SelectSkeleton";
 

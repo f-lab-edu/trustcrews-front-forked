@@ -7,7 +7,7 @@ import {createPortal} from "react-dom";
 import Modal from "@/components/ui/Modal";
 import FWCreateModalContents from "@/components/project/crews/detail/modal/FWCreateModalContents";
 import {createFWAlert} from "@/service/project/alert/vote/fwithdraw";
-import useSnackbar from "@/hooks/useSnackbar";
+import useSnackbar from "@/hooks/common/useSnackbar";
 
 function FwCreateModal() {
     const {setSuccessSnackbar, setErrorSnackbar} = useSnackbar();

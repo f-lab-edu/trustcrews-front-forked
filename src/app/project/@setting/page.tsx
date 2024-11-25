@@ -12,7 +12,7 @@ import ProjectSettingBoardInfoSkeleton from "@/components/project/setting/board/
 import ProjectSettingCrewAuthSkeleton from "@/components/project/setting/crewAuth/ProjectSettingCrewAuthSkeleton";
 import ErrorMessage from "@/components/ui/error/ErrorMessage";
 import ErrorPageContainer from "@/components/ui/error/ErrorPageContainer";
-import useCurrentUserPMAuth from "@/hooks/useCurrentUserPMAuth";
+import useCurrentUserPMAuth from "@/hooks/project/useCurrentUserPMAuth";
 
 
 function SettingPage({searchParams: {projectId}}: { searchParams: { projectId: string } }) {

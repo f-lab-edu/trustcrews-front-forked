@@ -1,6 +1,6 @@
 import React from 'react';
 import {ProjectAuthMap} from "@/utils/type";
-import useCrewOptionList from "@/hooks/useCrewOptionList";
+import useCrewOptionList from "@/hooks/project/setting/useCrewOptionList";
 import SelectSkeleton from "@/components/ui/skeleton/SelectSkeleton";
 import Select from "@/components/ui/selector/Select";
 

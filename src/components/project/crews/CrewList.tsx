@@ -4,7 +4,7 @@ import Avatar from "@/components/ui/Avatar";
 import ProjectRoleBadge from "@/components/ui/badge/ProjectRoleBadge";
 import Link from "next/link";
 import PositionBadge from "@/components/ui/badge/PositionBadge";
-import useProjectCrewList from "@/hooks/useProjectCrewList";
+import useProjectCrewList from "@/hooks/project/crew/useProjectCrewList";
 import {ProjectMember} from "@/utils/type";
 import CrewListSkeleton from "@/components/ui/skeleton/project/crews/CrewListSkeleton";
 

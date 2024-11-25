@@ -1,10 +1,10 @@
 import React from 'react';
 import SettingContainer from "@/components/project/setting/SettingContainer";
 import SettingTitle from "@/components/project/setting/SettingTitle";
-import useProjectCrewList from "@/hooks/useProjectCrewList";
+import useProjectCrewList from "@/hooks/project/crew/useProjectCrewList";
 import ProjectSettingCrewAuthSkeleton from "@/components/project/setting/crewAuth/ProjectSettingCrewAuthSkeleton";
 import CrewAuthRow from "@/components/project/setting/crewAuth/CrewAuthRow";
-import useCurrentUserPMAuth from "@/hooks/useCurrentUserPMAuth";
+import useCurrentUserPMAuth from "@/hooks/project/useCurrentUserPMAuth";
 
 function ProjectSettingCrewAuth({projectId}: { projectId: string }) {
     const {crewList, isFetching} = useProjectCrewList(projectId);

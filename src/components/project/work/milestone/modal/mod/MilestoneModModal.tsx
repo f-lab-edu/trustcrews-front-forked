@@ -8,10 +8,10 @@ import {
     milestoneModDataStateStore,
     milestoneModModalStateStore
 } from "@/store/project/task/MilestoneStateStore";
-import useUpdateMilestone from "@/hooks/useUpdateMilestone";
+import useUpdateMilestone from "@/hooks/project/task/useUpdateMilestone";
 import MilestoneModContent from "@/components/project/work/milestone/modal/mod/MilestoneModContent";
 import MilestoneModDate from "@/components/project/work/milestone/modal/mod/MilestoneModDate";
-import useMilestone from "@/hooks/useMilestone";
+import useMilestone from "@/hooks/project/task/useMilestone";
 import {bigIntToString} from "@/utils/common";
 import {MilestoneModReqData} from "@/service/project/milestone";
 

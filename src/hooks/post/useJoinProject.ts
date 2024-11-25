@@ -2,7 +2,7 @@
 
 import {useMutation} from "@tanstack/react-query";
 import {isEqual} from "lodash";
-import useSnackbar from "@/hooks/useSnackbar";
+import useSnackbar from "@/hooks/common/useSnackbar";
 import {useResetRecoilState} from "recoil";
 import {confirmModalState} from "@/store/CommonStateStore";
 import {applyProject} from "@/service/project/apply";

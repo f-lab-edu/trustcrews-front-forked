@@ -8,7 +8,7 @@ import {
     milestoneAddModalStateStore,
     milestoneModDataStateStore
 } from "@/store/project/task/MilestoneStateStore";
-import useCreateMilestone from "@/hooks/useCreateMilestone";
+import useCreateMilestone from "@/hooks/project/task/useCreateMilestone";
 import MilestoneAddDate from "@/components/project/work/milestone/modal/add/MilestoneAddDate";
 import MilestoneAddContent from "@/components/project/work/milestone/modal/add/MilestoneAddContent";
 

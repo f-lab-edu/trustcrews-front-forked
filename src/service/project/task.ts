@@ -1,6 +1,6 @@
 import {requestWithAuth} from "@/service/project/request";
 import {PageResponseBody, ProjectAuthMapCode} from "@/utils/type";
-import {TasksReqParam} from "@/hooks/useTasks";
+import {TasksReqParam} from "@/hooks/project/task/useTasks";
 import {TaskItem, TaskStatusValueType} from "@/app/project/@task/_utils/type";
 import {isEqual} from "lodash";
 import {TASK_STATUS} from "@/app/project/@task/_utils/constant";

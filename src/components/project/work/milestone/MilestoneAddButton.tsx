@@ -10,7 +10,7 @@ import {
 } from "@/store/project/task/MilestoneStateStore";
 import {useSetRecoilState} from "recoil";
 import {MilestoneAddButtonSkeleton} from "@/components/ui/skeleton/project/task";
-import useCurrentUserPMAuth from "@/hooks/useCurrentUserPMAuth";
+import useCurrentUserPMAuth from "@/hooks/project/useCurrentUserPMAuth";
 
 function MilestoneAddButton({projectId}: { projectId: string, userId: string }) {
     const {currentUserPMAuth, isFetchingCurrentUserPMAuth} = useCurrentUserPMAuth(projectId);

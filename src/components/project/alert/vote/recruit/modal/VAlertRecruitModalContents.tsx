@@ -8,12 +8,12 @@ import {useQuery} from "@tanstack/react-query";
 import {getVAlertRecruitDetail} from "@/service/project/alert/vote/recruit";
 import VAlertRecruitModalSkeleton from "@/components/ui/skeleton/project/alert/VAlertRecruitModalSkeleton";
 import VoteStatusBadge from "@/components/ui/badge/VoteStatusBadge";
-import useVoteRecruit from "@/hooks/useVoteRecruit";
+import useVoteRecruit from "@/hooks/project/useVoteRecruit";
 import {VoteOptionCode, VoteRecruitReqData} from "@/service/project/vote/type";
 import {VoteOption} from "@/service/project/vote/constant";
 import {projectIdState} from "@/store/project/ProjectInfoStateStore";
 import {useRecoilValue} from "recoil";
-import useCurrentUserPMAuth from "@/hooks/useCurrentUserPMAuth";
+import useCurrentUserPMAuth from "@/hooks/project/useCurrentUserPMAuth";
 import ApplicantProjectHistory from "@/components/project/alert/vote/recruit/modal/ApplicantProjectHisotry";
 import VoteBar from "@/components/ui/votebar/VoteBar";
 

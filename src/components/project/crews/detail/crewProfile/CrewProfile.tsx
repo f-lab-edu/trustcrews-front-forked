@@ -5,7 +5,7 @@ import PositionBadge from "@/components/ui/badge/PositionBadge";
 import ProjectRoleBadge from "@/components/ui/badge/ProjectRoleBadge";
 import CrewOutButton from "@/components/project/crews/detail/CrewOutButton";
 import ProfileSectionSkeleton from "@/components/ui/skeleton/project/crews/detail/ProfileSectionSkeleton";
-import useProjectMember from "@/hooks/useProjectMember";
+import useProjectMember from "@/hooks/project/crew/useProjectMember";
 import {getCookie} from "cookies-next";
 import CrewFwButton from "@/components/project/crews/detail/CrewFWButton";
 import CrewProfileItem from "@/components/project/crews/detail/crewProfile/CrewProfileItem";

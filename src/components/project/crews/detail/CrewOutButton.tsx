@@ -6,7 +6,7 @@ import {ProjectMemberProfile, ResponseBody} from "@/utils/type";
 import {useQueryClient} from "@tanstack/react-query";
 import {withdrawProject, WithdrawReqDto} from "@/service/project/crews";
 import {useRouter} from "next/navigation";
-import useSnackbar from "@/hooks/useSnackbar";
+import useSnackbar from "@/hooks/common/useSnackbar";
 
 function CrewOutButton({projectMemberInfo}: { projectMemberInfo: ProjectMemberProfile }) {
     const {setSuccessSnackbar, setErrorSnackbar} = useSnackbar();

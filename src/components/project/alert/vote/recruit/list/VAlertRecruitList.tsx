@@ -3,7 +3,7 @@ import CommonPagination from "@/components/ui/CommonPagination";
 import {ITEM_COUNT, PAGE_RANGE} from "@/utils/constant";
 import VAlertRecruitListItem from "@/components/project/alert/vote/recruit/list/VAlertRecruitListItem";
 import NoItemsContent from "@/components/project/alert/NoItemsContent";
-import useAlertList from "@/hooks/useAlertList";
+import useAlertList from "@/hooks/project/useAlertList";
 import {AlertType} from "@/service/project/alert/constant";
 import AlertListLoader from "@/components/project/alert/AlertListLoader";
 import {VAlertRecruitData} from "@/service/project/alert/type";

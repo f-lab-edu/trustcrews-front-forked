@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "next/link";
-import useClientMount from "@/hooks/useClientMount";
+import useClientMount from "@/hooks/common/useClientMount";
 import LoginNavSkeleton from "@/components/ui/skeleton/header/LoginNavSkeleton";
 
 function LoginNav() {

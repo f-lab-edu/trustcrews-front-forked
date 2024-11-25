@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from "next/image";
 import {useMediaQuery} from "react-responsive";
-import useClientMount from "@/hooks/useClientMount";
+import useClientMount from "@/hooks/common/useClientMount";
 
 interface TechStackImageProps {
     stackName: string;

@@ -5,7 +5,7 @@ import {useInfiniteQuery} from "@tanstack/react-query";
 import {PageResponseBody} from "@/utils/type";
 import ParticipateNotice from "@/components/main/myProjectPost/ParticipateNotice/ParticipateNotice";
 import Loader from "@/components/ui/Loader";
-import useIntersectionObserver from "@/hooks/useIntersectionObserver";
+import useIntersectionObserver from "@/hooks/common/useIntersectionObserver";
 import {ITEM_COUNT} from "@/utils/constant";
 import {getMyProjectApplies, ProjectApplyDto} from "@/service/project/apply";
 

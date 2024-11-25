@@ -7,7 +7,7 @@ import RegisterNav from "@/components/header/RegisterNav";
 import {hasCookie} from "cookies-next";
 import LoginNav from "@/components/header/User/LoginNav";
 import {UserMenu} from "@/components/header/User";
-import useClientMount from "@/hooks/useClientMount";
+import useClientMount from "@/hooks/common/useClientMount";
 
 function Header() {
     const mounted = useClientMount();

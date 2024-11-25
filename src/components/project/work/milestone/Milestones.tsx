@@ -3,9 +3,9 @@
 import React from 'react';
 import MilestoneCard from "@/components/project/work/milestone/MilestoneCard";
 import CustomSwiper from "@/components/ui/CustomSwiper";
-import {useMilestones} from "@/hooks/useMilestones";
+import {useMilestones} from "@/hooks/project/task/useMilestones";
 import {MilestoneListSkeleton} from "@/components/ui/skeleton/project/task";
-import useCurrentUserPMAuth from "@/hooks/useCurrentUserPMAuth";
+import useCurrentUserPMAuth from "@/hooks/project/useCurrentUserPMAuth";
 
 
 function Milestones({projectId}: { projectId: string }) {

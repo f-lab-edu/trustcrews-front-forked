@@ -5,7 +5,7 @@ import {CrewFWModalState, crewFWModalStateStore} from "@/store/project/alert/mod
 import {ProjectMemberProfile} from "@/utils/type";
 import ButtonStyleSkeleton from "@/components/ui/skeleton/ButtonStyleSkeleton";
 import {bigIntToString} from "@/utils/common";
-import useCurrentUserPMAuth from "@/hooks/useCurrentUserPMAuth";
+import useCurrentUserPMAuth from "@/hooks/project/useCurrentUserPMAuth";
 
 function CrewFwButton({projectMemberInfo}: { projectMemberInfo: ProjectMemberProfile }) {
     const [createFWModalState, setCreateFWModalState] = useRecoilState(crewFWModalStateStore);

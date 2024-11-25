@@ -5,7 +5,7 @@ import ProjectSubject from "@/components/project/setting/info/ProjectSubject";
 import ProjectDate from "@/components/project/setting/info/ProjectDate";
 import ProjectSettingFormResetButton from "@/components/project/setting/info/ProjectSettingFormResetButton";
 import ProjectSettingFormSaveButton from "@/components/project/setting/info/ProjectSettingFormSaveButton";
-import useProjectInfoSummary, {isQueryDataReady} from "@/hooks/useProjectInfoSummary";
+import useProjectInfoSummary, {isQueryDataReady} from "@/hooks/common/useProjectInfoSummary";
 import {useResetRecoilState, useSetRecoilState} from "recoil";
 import {
     projectSettingInfoSelector,

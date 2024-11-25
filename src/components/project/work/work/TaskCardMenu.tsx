@@ -6,7 +6,7 @@ import {classNames} from "@/utils/common";
 import {TaskItem} from "@/app/project/@task/_utils/type";
 import {useSetRecoilState} from "recoil";
 import {taskModModalDataStateStore, taskModModalStateStore} from "@/store/project/task/TaskStateStore";
-import useDeleteTask from "@/hooks/useDeleteTask";
+import useDeleteTask from "@/hooks/project/task/useDeleteTask";
 import {TaskModifyReqData} from "@/service/project/task";
 import {TASK_STATUS} from "@/app/project/@task/_utils/constant";
 import {ProjectAuthMap} from "@/utils/type";
