@@ -1,4 +1,4 @@
-import {requestWithAuth} from "@/service/project/request";
+import {requestWithAuth} from "@/service/request";
 import {Position, PostInfoSummary, ProjectAuthMap, ProjectAuthMapCode} from "@/utils/type";
 
 export type BoardPosition = {

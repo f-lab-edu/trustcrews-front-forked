@@ -1,5 +1,5 @@
 import {MilestoneInfo, ProjectAuthMap, ProjectAuthMapCode} from "@/utils/type";
-import {requestWithAuth} from "@/service/project/request";
+import {requestWithAuth} from "@/service/request";
 import {sortByStartDate, throwErrorIfInvalid} from "@/utils/common";
 
 /**

@@ -1,4 +1,4 @@
-import {requestWithAuth} from "@/service/project/request";
+import {requestWithAuth} from "@/service/request";
 import {ConstantDto, PageResponseBody} from "@/utils/type";
 
 

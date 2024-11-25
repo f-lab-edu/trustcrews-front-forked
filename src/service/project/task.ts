@@ -1,4 +1,4 @@
-import {requestWithAuth} from "@/service/project/request";
+import {requestWithAuth} from "@/service/request";
 import {PageResponseBody, ProjectAuthMapCode} from "@/utils/type";
 import {TasksReqParam} from "@/hooks/project/task/useTasks";
 import {TaskItem, TaskStatusValueType} from "@/app/project/@task/_utils/type";

@@ -1,7 +1,7 @@
 import {isValidEmail, isValidNickname, isValidPassword, throwErrorIfInvalid} from "@/utils/common";
 import {PositionId, TechStackValueType} from "@/utils/type";
 import _ from "lodash";
-import {request} from "@/service/project/request";
+import {request} from "@/service/request";
 
 const publicURL = process.env.NEXT_PUBLIC_URL;
 

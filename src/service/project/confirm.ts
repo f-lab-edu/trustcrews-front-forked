@@ -1,4 +1,4 @@
-import {requestWithAuth} from "@/service/project/request";
+import {requestWithAuth} from "@/service/request";
 import {ProjectAuthMapCode} from "@/utils/type";
 
 

@@ -1,6 +1,6 @@
 import {PositionItem, PostInfo, ResponseBody, TechStackWithCategory} from "@/utils/type";
 import _, {isEqual} from "lodash";
-import {request, requestWithAuth} from "@/service/project/request";
+import {request, requestWithAuth} from "@/service/request";
 import {CreatePostForm} from "@/app/postRegister/_utils/type";
 import {throwErrorIfInvalid} from "@/utils/common";
 

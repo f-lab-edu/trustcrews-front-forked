@@ -1,4 +1,4 @@
-import {handleResponse, requestWithAuth} from "@/service/project/request";
+import {handleResponse, requestWithAuth} from "@/service/request";
 import {ResponseBody} from "@/utils/type";
 
 const publicURL = process.env.NEXT_PUBLIC_URL;

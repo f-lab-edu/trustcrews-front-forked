@@ -1,5 +1,5 @@
 import {VoteRecruitReqData} from "@/service/project/vote/type";
-import {requestWithAuth} from "@/service/project/request";
+import {requestWithAuth} from "@/service/request";
 
 /**
  * 프로젝트 "모집" 투표

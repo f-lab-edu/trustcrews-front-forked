@@ -1,4 +1,4 @@
-import {requestWithAuth} from "@/service/project/request";
+import {requestWithAuth} from "@/service/request";
 import {AlertMenu, VAlertRecruitDetailData} from "@/service/project/alert/type";
 import {ResponseBody} from "@/utils/type";
 

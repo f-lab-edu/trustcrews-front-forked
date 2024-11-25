@@ -1,4 +1,4 @@
-import {request, requestWithAuth} from "@/service/project/request";
+import {request, requestWithAuth} from "@/service/request";
 import {ProjectAuthMap, ProjectAuthMapCode, TechStackItem} from "@/utils/type";
 import {isEqual} from "lodash";
 import {throwErrorIfInvalid} from "@/utils/common";

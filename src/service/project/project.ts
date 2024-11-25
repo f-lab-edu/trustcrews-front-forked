@@ -1,4 +1,4 @@
-import {requestWithAuth} from "@/service/project/request";
+import {requestWithAuth} from "@/service/request";
 import {ResponseBody} from "@/utils/type";
 import {sortByStartDate} from "@/utils/common";
 
