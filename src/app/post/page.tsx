@@ -15,7 +15,7 @@ export async function generateMetadata({
     const postInfo: ResponseBody<PostInfo> = await getPost(numStrToBigInt(postId));
 
     return {
-        title: `${postInfo.data!.title} - TRUSTCREWS | 책임감 있는 사이드 프로젝트 팀, 팀원을 구하는 방법`,
+        title: `${postInfo.data!.title} - 팀프로젝트 | TRUSTCREWS`,
         description: `${postInfo.data!.content}`
     }
 }
