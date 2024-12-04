@@ -96,19 +96,19 @@ export function makeImageSize(size: string) {
     let imageSize;
     switch (size) {
         case "2xs":
-            imageSize = "h-6 w-6";
+            imageSize = "h-[24px] w-[24px]";
             break;
         case "xs":
-            imageSize = "h-10 w-10 mobile:h-8 mobile:w-8";
+            imageSize = "pc:h-[40px] pc:w-[40px] h-[32px] w-[32px]";
             break;
         case "sm":
-            imageSize = "h-16 w-16 mobile:h-10 mobile:w-10";
+            imageSize = "pc:h-[64px] pc:w-[64px] h-[40px] w-[40px]";
             break;
         case "md":
-            imageSize = "h-24 w-24 mobile:h-16 mobile:w-16";
+            imageSize = "pc:h-[96px] pc:w-[96px] h-[64px] w-[64px]";
             break;
         case "lg":
-            imageSize = "h-40 w-40 mobile:h-28 mobile:w-28";
+            imageSize = "pc:h-[160px] pc:w-[160px] h-[112px] w-[112px]";
             break;
         default:
             imageSize = size;

@@ -11,7 +11,7 @@ const TitleSection = ({ boardInfo }: { boardInfo: PostInfo}) => {
       </h1>
       <article className="flex gap-3 items-center">
         <div className="flex items-center gap-2">
-          <Avatar size="h-8 w-8 mobile:h-7 mobile:w-7" alt={user.nickName} src={user.userProfileImgSrc} />
+          <Avatar size="2xs" alt={user.nickName} src={user.userProfileImgSrc} />
           <div className="text-lg mobile:text-base">
             <span className='sr-only'>작성자: </span>{user.nickName}
           </div>

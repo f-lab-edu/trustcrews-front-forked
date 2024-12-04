@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import Image from "next/image";
 import {useMediaQuery} from "react-responsive";
@@ -11,26 +10,20 @@ interface TechStackImageProps {
 }
 
 function TechStackImage({stackName, width, height}: TechStackImageProps) {
-    const mounted = useClientMount();
     const fileName = stackName.toLowerCase().replace(".", "");
 
-    const isMobile = useMediaQuery({maxWidth: 700});
-    const isDesktop = useMediaQuery({query: '(min-width: 1280px)'});
-
-    const responsiveWidth = isMobile ? 20 : (isDesktop ? 32 : 26);
-    const responsiveHeight = isMobile ? 20 : (isDesktop ? 32 : 26);
-
-    if(!mounted) return null;
 
     return (
-        <Image
-            aria-hidden={true}
-            src={`${process.env.NEXT_PUBLIC_URL}/images/tech/${fileName}.svg`}
-            alt={stackName}
-            fill={responsiveWidth && responsiveHeight ? undefined : true}
-            width={responsiveWidth ? responsiveWidth : undefined}
-            height={responsiveHeight ? responsiveHeight : undefined}
-        />
+        <div
+            className='relative inline-block pc:w-[32px] pc:h-[32px] tablet:w-[28px] tablet:h-[28px] mobile:w-[24px] mobile:h-[24px]'>
+            <Image
+                aria-hidden={true}
+                src={`${process.env.NEXT_PUBLIC_URL}/images/tech/${fileName}.svg`}
+                alt={stackName}
+                fill
+                sizes={"(max-width: 767px) 24px, (max-width: 1179px) 28px, 32px"}
+            />
+        </div>
     );
 }
 
