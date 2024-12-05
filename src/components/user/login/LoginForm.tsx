@@ -1,7 +1,6 @@
 'use client';
 import React, {useState} from "react";
 import Input from "@/components/ui/form/Input";
-import PasswordInput from "@/components/ui/form/PasswordInput";
 import FormButton from "@/components/ui/form/FormButton";
 import {login} from "@/service/user/login";
 import {useRouter} from "next/navigation";
@@ -75,7 +74,7 @@ function LoginForm() {
         <div className="w-[380px] mobile:w-[300px] space-y-5 mobile:space-y-4">
             <Input id="email" label="이메일" required
                    value={email} onChange={(e) => setEmail(e.target.value)} onKeyUp={handleKeyDown}/>
-            <Input id="password" label="비밀번호" title="영문, 숫자 포함 6자 이상 입력" required
+            <Input type='password' id="password" label="비밀번호" title="영문, 숫자 포함 6자 이상 입력" required
                    value={password} onChange={(e) => setPassword(e.target.value)} onKeyUp={handleKeyDown}/>
             <br/>
             <FormButton aria-label='로그인 버튼' onClick={userLogin}>로그인</FormButton>

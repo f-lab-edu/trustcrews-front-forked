@@ -62,9 +62,9 @@ function SignUpForm() {
         <div className="w-[380px] mobile:w-[300px] space-y-5 mobile:space-y-3">
             <Input id="email" label="이메일" placeholder="example@trustcrews.com" required
                    value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <Input id="password" label="비밀번호" placeholder="영문, 특수문자 포함 6~12자" required
+            <Input type='password' id="password" label="비밀번호" title="영문, 특수문자 포함 6~12자" required
                    value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <Input id="passwordConfirmation" label="비밀번호 확인" placeholder="영문, 특수문자 포함 6~12자" required
+            <Input type='password' id="passwordConfirmation" label="비밀번호 확인" title="영문, 특수문자 포함 6~12자" required
                    value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
             <NicknameField placeholder="영문, 숫자 포함 6~10자" setCheck={setIsCheckedNickname} required
                            value={nickname} onChange={onChangeNickname}/>
