@@ -25,8 +25,8 @@ function VAlertFwListItem({data}: VAlertFwListItemProps) {
             onClick={onClickAlertItemHandler}
         >
             <div className='flex items-center gap-x-4'>
-                <NoticeBadge size='sm' noticeType={AlertType.PRA1003}/>
-                <VoteStatusBadge size='sm' voteStatus={voteStatus}/>
+                <NoticeBadge noticeType={AlertType.PRA1003}/>
+                <VoteStatusBadge voteStatus={voteStatus}/>
                 {contents}
             </div>
             <div className='ml-auto text-grey600'>

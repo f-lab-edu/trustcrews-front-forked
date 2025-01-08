@@ -36,7 +36,7 @@ function ProfileCard() {
                 <div>
                     {
                         techStacks.length > 0 && techStacks.map((stack) =>
-                            <TechStackBadge key={stack.techStackId} text={stack.techStackName} size='xs'
+                            <TechStackBadge key={stack.techStackId} text={stack.techStackName}
                                             className="mx-0.5 w-[70px] mobile:w-[50px] justify-center"/>
                         )
                     }

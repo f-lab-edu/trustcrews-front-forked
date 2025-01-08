@@ -76,8 +76,8 @@ function VAlertFwModalContents({voteId, fwMemberId}: VAlertFWModalContentsProps)
                 <div><Avatar src={fwUserProfile} alt='강제탈퇴 멤버 아바타' size='md'/></div>
                 <h3 className='my-1 text-[1.4rem] text-greyDarkBlue font-medium'>{fwUserNickname}</h3>
                 <div className='mx-auto flex justify-center space-x-2'>
-                    <ProjectRoleBadge text={fwMemberAuth.name} size='sm'/>
-                    <PositionBadge text={fwMemberPositionName} size='sm'/>
+                    <ProjectRoleBadge text={fwMemberAuth.name} />
+                    <PositionBadge text={fwMemberPositionName} />
                 </div>
             </section>
             <section
@@ -88,7 +88,7 @@ function VAlertFwModalContents({voteId, fwMemberId}: VAlertFWModalContentsProps)
             <section className='tablet:max-w-[400px] h-[250px] mx-auto flex flex-col justify-center space-y-5'>
                 <div className='flex justify-center items-center space-x-1 text-2xl text-greyDarkblue font-medium'>
                     <span>투표</span>
-                    <VoteStatusBadge size='sm' voteStatus={voteStatus}/>
+                    <VoteStatusBadge voteStatus={voteStatus}/>
                 </div>
                 {
                     isVoteEnded &&

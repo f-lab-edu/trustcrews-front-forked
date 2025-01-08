@@ -5,6 +5,7 @@ import {ProjectApplyStatusCode} from "@/service/project/apply";
 import {VoteStatusCode} from "@/service/project/alert/type";
 import {BoardPosition, ProjectSettingBoardData} from "@/service/project/setting/board";
 import {UserProjectHistoryStatus} from "@/service/user/constant";
+import {BadgeSize} from "@/utils/common";
 
 export type DropDownItem = {
     name: string;
@@ -18,7 +19,7 @@ export interface DropDownProps {
 
 export interface BadgeProps {
     color?: string;
-    size?: string;
+    size?: BadgeSize;
     text?: string;
 }
 

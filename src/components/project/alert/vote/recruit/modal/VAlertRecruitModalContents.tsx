@@ -120,7 +120,7 @@ function VAlertRecruitModalContents({voteId, applyId, alertId}: VAlertRecruitMod
             <section className='tablet:max-w-[400px] h-[250px] mx-auto flex flex-col justify-center space-y-5'>
                 <div className='flex justify-center items-center space-x-1 text-2xl text-greyDarkblue font-medium'>
                     <span>투표</span>
-                    <VoteStatusBadge size='sm' voteStatus={voteStatus}/>
+                    <VoteStatusBadge voteStatus={voteStatus}/>
                 </div>
                 {
                     isVoteEnded &&

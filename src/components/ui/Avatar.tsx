@@ -9,6 +9,8 @@ interface ImageProps extends HTMLAttributes<HTMLImageElement> {
     alt: string;
 }
 
+
+
 function Avatar({src, size, alt, ...props}: ImageProps) {
     const imageSize = makeImageSize(size);
 

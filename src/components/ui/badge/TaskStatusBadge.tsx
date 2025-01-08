@@ -1,19 +1,15 @@
 import React from 'react';
 import {BadgeProps} from "@/utils/type";
-import {getStatusBadgeColor, makeBadgeSize} from "@/utils/common";
+import {BADGE_SIZE, getStatusBadgeColor} from "@/utils/common";
 
 
-
-function TaskStatusBadge({size = '', text = '시작전'}: BadgeProps) {
-
-    const {textSize, px, py} = makeBadgeSize(size);
-
+function TaskStatusBadge({size, text = '시작전'}: BadgeProps) {
     const {bgColor, textColor} = getStatusBadgeColor(text);
 
 
     return (
         <span
-            className={`inline-flex items-center rounded-full ${bgColor} ${px} ${py} ${textSize} font-medium ${textColor}`}
+            className={`inline-flex items-center rounded-full ${BADGE_SIZE[size!]} ${bgColor} font-medium ${textColor} `}
         >
         {text}
       </span>

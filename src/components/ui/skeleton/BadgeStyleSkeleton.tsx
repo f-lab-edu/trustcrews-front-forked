@@ -1,18 +1,16 @@
 import React, {HTMLAttributes} from 'react';
-import {classNames, makeBadgeSize} from "@/utils/common";
+import {BADGE_SIZE, classNames} from "@/utils/common";
 import {BadgeProps} from "@/utils/type";
 
-interface BadgeStyleSkeletonProps extends HTMLAttributes<HTMLDivElement> {
-    size?: string;
+interface BadgeStyleSkeletonProps extends HTMLAttributes<HTMLDivElement>, BadgeProps {
     text?: string;
 }
 
-function BadgeStyleSkeleton({size = 'md', text = '시작전', ...props}: BadgeStyleSkeletonProps) {
-    const {textSize, py, px} = makeBadgeSize(size);
+function BadgeStyleSkeleton({size, text = '시작전', ...props}: BadgeStyleSkeletonProps) {
     return (
         <div
             className={classNames(props.className || '',
-                `${textSize} ${py} ${px} bg-gray-200 rounded-full animate-pulse text-transparent`)}>
+                `${BADGE_SIZE[size!]} bg-gray-200 rounded-full animate-pulse text-transparent`)}>
             {text}
         </div>
     );

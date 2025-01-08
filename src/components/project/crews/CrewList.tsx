@@ -37,8 +37,8 @@ export default function CrewList({projectId, userId}: { projectId: string, userI
                                         {nickname}
                                     </p>
                                     <ul className='flex items-center space-x-3'>
-                                        <li><PositionBadge text={name} size='sm'/></li>
-                                        <li><ProjectRoleBadge text={projectMemberAuthName} size='sm'/></li>
+                                        <li><PositionBadge text={name} /></li>
+                                        <li><ProjectRoleBadge text={projectMemberAuthName} /></li>
                                     </ul>
                                 </div>
                             </Link>

@@ -24,8 +24,8 @@ function VAlertRecruitListItem({data}:VAlertRecruitListItemProps) {
             onClick={onClickAlertItemHandler}
         >
             <div className='flex items-center gap-x-4'>
-                <NoticeBadge size='sm' noticeType={AlertType.PRA1002}/>
-                <VoteStatusBadge size='sm' voteStatus={voteStatus}/>
+                <NoticeBadge noticeType={AlertType.PRA1002}/>
+                <VoteStatusBadge voteStatus={voteStatus}/>
                 {contents}
             </div>
             <div className='ml-auto text-grey600'>

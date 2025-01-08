@@ -11,8 +11,8 @@ function VAlertFwModalSkeleton() {
                 <AvatarSkeleton size='md' className='mx-auto'/>
                 <Skeleton className='h-6 w-[80px] my-1 mx-auto'/>
                 <div className='mt-2 mx-auto flex justify-center space-x-2'>
-                    <BadgeStyleSkeleton className='w-10 h-2'/>
-                    <BadgeStyleSkeleton className='w-10 h-2'/>
+                    <BadgeStyleSkeleton className='w-10 h-2' size='md'/>
+                    <BadgeStyleSkeleton className='w-10 h-2' size='md'/>
                 </div>
             </section>
             <Skeleton className='tablet:max-w-[400px] h-[140px] mx-auto mt-8'/>

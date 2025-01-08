@@ -10,87 +10,75 @@ import {
 } from "./type";
 import _, {camelCase} from "lodash";
 import {ReactNode} from "react";
+import {AlertMenuCode, AlertMenuName} from "@/service/project/alert/type";
 
 
-export function makeBadgeSize(size: string) {
-    // 사이즈
-    let textSize;
-    let px;
-    let py;
-    switch (size) {
-        case "xs":
-            textSize = "text-[11px] mobile:text-[9px]";
-            px = "px-2 mobile:px-1";
-            py = "py-0.5 mobile:py-0";
-            break;
-        case "sm":
-            textSize = "tablet:text-sm mobile:text-xs";
-            px = "px-2";
-            py = "py-1";
-            break;
-        case "md":
-            textSize = "tablet:text-lg mobile:text-base";
-            px = "tablet:px-8 mobile:px-4";
-            py = "tablet:py-4 mobile:py-2";
-            break;
-        case "lg":
-            textSize = "text-lg";
-            px = "px-8";
-            py = "py-4";
-            break;
-        default:
-            textSize = "tablet:text-base mobile:text-sm";
-            px = "px-4";
-            py = "tablet:py-2 mobile:py-1";
-    }
 
-    return {textSize, px, py};
+export const BADGE_COLOR = {
+    red: "bg-red-50 text-red-700 ring-red-600/10",
+    yellow: "bg-yellow-50 text-yellow-800 ring-yellow-600/20",
+    green: "bg-green-50 text-green-700 ring-green-600/20",
+    blue: "bg-blue-50 text-blue-700 ring-blue-700/10",
+    purple: "bg-purple-50 text-purple-700 ring-purple-700/10",
+    slate: "bg-slate-50 text-slate-600 ring-slate-700/20",
+    fullRed: "bg-[#FF513A] text-[#FFFFFF]",
+    fullYellow: "text-[#FFFFFF] text[#7B5C03]"
+} as const;
+
+export type BadgeColor = keyof typeof BADGE_COLOR;
+export type BadgeColorValue = typeof BADGE_COLOR[BadgeColor];
+
+export const BADGE_SIZE = {
+    xs: "text-[11px] mobile:text-[9px] px-2 mobile:px-1 py-0.5 mobile:py-0",
+    sm: "tablet:text-sm mobile:text-xs px-2 py-1",
+    md: "tablet:text-lg mobile:text-base tablet:px-8 mobile:px-4 tablet:py-4 mobile:py-2",
+    lg: "text-lg px-8 py-4",
+} as const;
+
+export type BadgeSize = keyof typeof BADGE_SIZE;
+export type BadgeSizeValue = typeof BADGE_SIZE[BadgeSize];
+
+export interface BadgeInterface {
+    color?(): BadgeColorValue;
+    size(): BadgeSizeValue;
 }
 
-export function makeBadgeColor(color: string) {
-    let bgColor;
-    let textColor;
-    let ringColor;
-    switch (color) {
-        case "red":
-            bgColor = "bg-red-50";
-            textColor = "text-red-700";
-            ringColor = "ring-red-600/10";
-            break;
-        case "yellow":
-            bgColor = "bg-yellow-50";
-            textColor = "text-yellow-800";
-            ringColor = "ring-yellow-600/20";
-            break;
-        case "green":
-            bgColor = "bg-green-50";
-            textColor = "text-green-700";
-            ringColor = "ring-green-600/20";
-            break;
-        case "blue":
-            bgColor = "bg-blue-50";
-            textColor = "text-blue-700";
-            ringColor = "ring-blue-700/10";
-            break;
-        case "purple":
-            bgColor = "bg-purple-50";
-            textColor = "text-purple-700";
-            ringColor = "ring-purple-700/10";
-            break;
-        case "slate":
-            bgColor = "bg-slate-50";
-            textColor = "text-slate-600";
-            ringColor = "ring-slate-700/20";
-            break;
-        default:
-            bgColor = "bg-red-50";
-            textColor = "text-red-700";
-            ringColor = "ring-red-600/10";
-            break;
+export class NoticeBadge implements BadgeInterface {
+    private readonly _color: BadgeColor;
+    private readonly _size: BadgeSize;
+    private _text: string;
+
+    constructor(color:BadgeColor, size:BadgeSize, text:string) {
+        this._color = color;
+        this._size = size;
+        this._text = text;
     }
 
-    return {bgColor, textColor, ringColor};
+    color(): BadgeColorValue {
+        return BADGE_COLOR[this._color];
+    }
+
+    size(): BadgeSizeValue {
+        return BADGE_SIZE[this._size];
+    }
+
+    text(): string {
+        return this._text;
+    }
 }
+
+export class _NoticeBadge extends NoticeBadge {
+    constructor(color: BadgeColor, text: AlertMenuName) {
+        super(color, "sm", text);
+    }
+}
+
+export const NOTICE_BADGE: Record<AlertMenuCode, _NoticeBadge> = {
+    PRA2001: new _NoticeBadge("blue","크루"),
+    PRA1002: new _NoticeBadge("yellow", "모집"),
+    PRA1003: new _NoticeBadge("red", "강제탈퇴"),
+} as const;
+
 
 export function makeImageSize(size: string) {
     let imageSize;
