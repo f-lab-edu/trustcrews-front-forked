@@ -8,23 +8,23 @@ jobs:
     if: github.repository == 'f-lab-edu/trustcrews-front-forked'
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Check out the repository
-      uses: actions/checkout@v4
-      with:
-        persist-credentials: false
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
-    - name: Set up Git
-      run: |
-        git config user.name 'Github Actions'
-        git config user.email 'action@github.com' 
+      - name: Set up Git
+        run: |
+          git config user.name 'Github Actions'
+          git config user.email 'action@github.com' 
 
-    - name: Add Upstream as Remote
-      run: git remote add upstream https://github.com/trustcrewsProject/Front.git
+      - name: Add Upstream as Remote
+        run: git remote add upstream https://github.com/trustcrewsProject/Front.git
 
-    - name: Push changes to Upstream
-      env:
-        GITHUB_USERNAME: EUNSUN23
-        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-      run: |
-        git push -f https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/trustcrewsProject/Front.git $GITHUB_REF_NAME
+      - name: Push changes to Upstream
+        env:
+          GITHUB_USERNAME: EUNSUN23
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git push -f https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/trustcrewsProject/Front.git $GITHUB_REF_NAME
