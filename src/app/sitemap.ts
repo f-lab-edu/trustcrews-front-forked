@@ -17,7 +17,9 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap> {
 
     }catch (e:unknown){
         console.error(e as Error);
-        throw e as Error;
+        return [
+            { url: `${DOMAIN}/`, lastModified: new Date(), priority: 1 },
+        ];
     }
 
 
