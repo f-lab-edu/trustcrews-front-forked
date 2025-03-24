@@ -2,7 +2,6 @@ name: Push Changes to Upstream
 
 on:
   push:
-    branches:
 
 jobs:
   sync:
