@@ -48,7 +48,7 @@ export default (phase, {defaultConfig}) => {
         },
         async headers(){
            return [
-               { source: "/api/:path",
+               { source: "/api/:path*",
                    headers:[
                        { key: "Access-Control-Allow-Credentials", value: "true" },
                        { key: "Access-Control-Allow-Origin", value: "www.trustcrews.com, trustcrews-front-forked-kim-eun-seons-projects.vercel.app" },
