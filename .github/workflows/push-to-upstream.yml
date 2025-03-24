@@ -20,11 +20,11 @@ jobs:
           git config user.email 'action@github.com' 
 
       - name: Add Upstream as Remote
-        run: git remote add upstream https://github.com/EUNSUN23/trustcrews-front.git
+        run: git remote add fork https://github.com/EUNSUN23/trustcrews-front-forked.git
 
       - name: Push changes to Upstream
         env:
           GITHUB_USERNAME: EUNSUN23
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          git push -f https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/EUNSUN23/trustcrews-front.git $GITHUB_REF_NAME
+          git push -f https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/EUNSUN23/trustcrews-front-forked.git $GITHUB_REF_NAME
