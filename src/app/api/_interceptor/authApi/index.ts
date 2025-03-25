@@ -21,8 +21,8 @@ const authApi = returnFetchWrapper({
     interceptors: {
         request: async (requestArgs) => {
             try {
-                const requestInit = requestArgs[1]! as RequestInit;
-                const accessToken = getCookieValue(COOKIE.ACS_TOKEN)!;
+                const requestInit = requestArgs[1];
+                const accessToken = getCookieValue(COOKIE.ACS_TOKEN);
 
                 // 액세스 토큰 세팅
                 const headers = new Headers(requestInit.headers);
@@ -30,7 +30,7 @@ const authApi = returnFetchWrapper({
                 requestInit.headers = headers;
 
                 if (requestInit.body instanceof FormData) {
-                    const headers = new Headers(requestArgs[1]!.headers);
+                    const headers = new Headers(requestInit.headers);
                     headers.delete('Content-Type');
                     requestInit.headers = headers;
                 }
@@ -43,16 +43,17 @@ const authApi = returnFetchWrapper({
             return requestArgs;
         },
         response: async (response, requestArgs) => {
-            const requestInit = requestArgs[1]!;
+            const url = requestArgs[0];
+            const requestInit = requestArgs[1];
 
             if (response.ok) { // 성공 응답
-                resLogger.i(`${requestInit.method} ${response.status}:  ${requestArgs[0]}`);
+                resLogger.i(`${requestInit.method} ${response.status}:  ${url}`);
                 return response;
             }
 
             if(response.status !== 401){
                 const errorMessage = await getErrorMessageFromResponse(response);
-                resLogger.i(`${requestInit.method} ${response.status}:  ${requestArgs[0]} - ${errorMessage}`);
+                resLogger.i(`${requestInit.method} ${response.status}:  ${url} - ${errorMessage}`);
                 return response;
             }
 
