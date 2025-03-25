@@ -7,16 +7,18 @@ const publicApi = returnFetchPublicWrapper({
     baseUrl: baseURL,
     interceptors: {
         request: async (requestArgs) => {
-            reqPLogger.i(`${requestArgs[1]!.method || 'GET'}: ${requestArgs[0]}`);
+            reqPLogger.i(`${requestArgs[1].method || 'GET'}: ${requestArgs[0]}`);
             return requestArgs;
         },
         response: async (response, requestArgs) => {
+            const url = requestArgs[0];
+            const requestInit = requestArgs[1];
             if (response.ok) {
-                resPLogger.i(`${requestArgs[1]!.method || 'GET'}: ${response.status} ${requestArgs[0]}`)
+                resPLogger.i(`${requestInit.method || 'GET'}: ${response.status} ${url}`)
                 return response;
             }else{
                 const errorMessage = await getErrorMessageFromResponse(response);
-                resPLogger.i(`${requestArgs[1]!.method}: ${response.status} ${requestArgs[0]} - ${errorMessage}`);
+                resPLogger.i(`${requestInit.method}: ${response.status} ${url} - ${errorMessage}`);
                 return response;
             }
         },
