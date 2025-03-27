@@ -50,8 +50,8 @@ export async function refreshToken(): Promise<void> {
     if (accessToken && setCookieHeader) { // 액세스 & 리프레쉬 토큰 세팅
         const {token, options} = getRefreshToken(setCookieHeader);
         const cookieStore = cookies();
-        cookieStore.set(COOKIE.ACS_TOKEN, accessToken, options);
-        cookieStore.set(COOKIE.REF_TOKEN, token, options);
+        cookieStore.set(COOKIE.ACS_TOKEN, accessToken, {...options, sameSite:'strict'});
+        cookieStore.set(COOKIE.REF_TOKEN, token, {...options, sameSite:'strict'});
         setUserRefToken(userId, cookieStore.get(COOKIE.REF_TOKEN)!.value);
         resLogger.i(`TOKEN-REFRESH-SUCCESS`);
     } else {

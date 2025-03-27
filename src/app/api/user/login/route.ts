@@ -21,8 +21,8 @@ export async function POST(req: NextRequest) {
         const cookieStore = cookies();
         if (accessToken && setCookieHeader) {
             const {token, options} = getRefreshToken(setCookieHeader);
-            cookieStore.set("Access", accessToken, options);
-            cookieStore.set("Refresh", token, options);
+            cookieStore.set("Access", accessToken, {...options, sameSite:'strict'});
+            cookieStore.set("Refresh", token, {...options, sameSite:'strict'});
         }
 
         const copiedRes = res.clone();
