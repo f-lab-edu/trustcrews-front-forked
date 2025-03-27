@@ -1,0 +1,48 @@
+name: Vercel Preview Deployment
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL_PREVIEW }}
+  NEXT_PUBLIC_BACKEND: ${{ secrets.NEXT_PUBLIC_BACKEND_PREVIEW }}
+on:
+  push:
+    branches-ignore:
+      - main
+jobs:
+  build-deploy-preview:
+    if: github.repository == 'EUNSUN23/trustcrews-front-forked'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        id: cache-deps
+        with:
+          path: node_modules
+          key: npm-packages-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: npm ci --legacy-peer-deps
+
+      - name: Build project
+        if: ${{ success() }}
+        run: npm run build --if-present
+
+      - name: Install Vercel CLI
+        if: ${{ success() }}
+        run: npm install -g vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+

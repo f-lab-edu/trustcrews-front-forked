@@ -3,6 +3,7 @@ import {NextRequest} from "next/server";
 import {cookies} from "next/headers";
 import {getRefreshToken} from "@/utils/common";
 import {routeResponse} from "@/app/api/_interceptor/routeResponse";
+import {GatewayError} from "@/app/api/_interceptor/error/classes";
 
 export async function POST(req: NextRequest) {
     const loginRequest = await req.json();
@@ -21,8 +22,11 @@ export async function POST(req: NextRequest) {
         const cookieStore = cookies();
         if (accessToken && setCookieHeader) {
             const {token, options} = getRefreshToken(setCookieHeader);
-            cookieStore.set("Access", accessToken, options);
-            cookieStore.set("Refresh", token, options);
+            cookieStore.set("Access", accessToken, {...options, sameSite:'strict'});
+            cookieStore.set("Refresh", token, {...options, sameSite:'strict'});
+
+        }else{
+            throw new GatewayError("EAUTH", `Token refresh response did not contain necessary headers: Empty - ${!accessToken && 'Access,'} ${!setCookieHeader && 'Set-Cookie Header'}`);
         }
 
         const copiedRes = res.clone();

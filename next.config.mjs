@@ -69,7 +69,7 @@ export default (phase, {defaultConfig}) => {
                         {key: "Access-Control-Allow-Credentials", value: "true"},
                         {
                             key: "Access-Control-Allow-Origin",
-                            value: "www.trustcrews.com, trustcrews-front-forked-kim-eun-seons-projects.vercel.app"
+                            value: "www.trustcrews.com, trustcrews-front-forked-kim-eun-seons-projects.vercel.app, trustcrews-front-forked-eunsun23-kim-eun-seons-projects.vercel.app/"
                         },
                         {key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT"},
                         {
