@@ -20,15 +20,10 @@ export async function POST(req: NextRequest) {
         const setCookieHeader = headers.get("Set-Cookie");
 
         const cookieStore = cookies();
-        console.log("acctoken: ", accessToken);
-        console.log("setCookieHeader: ", setCookieHeader);
         if (accessToken && setCookieHeader) {
             const {token, options} = getRefreshToken(setCookieHeader);
-            console.log("acc option: ", {...options, sameSite:'strict'});
-            // cookieStore.set("Access", accessToken, {...options, sameSite:'strict'});
-            cookieStore.set("Access", accessToken, options);
-            // cookieStore.set("Refresh", token, {...options, sameSite:'strict'});
-            cookieStore.set("Refresh", token, options);
+            cookieStore.set("Access", accessToken, {...options, sameSite:'strict'});
+            cookieStore.set("Refresh", token, {...options, sameSite:'strict'});
 
         }else{
             throw new GatewayError("EAUTH", `Token refresh response did not contain necessary headers: Empty - ${!accessToken && 'Access,'} ${!setCookieHeader && 'Set-Cookie Header'}`);
