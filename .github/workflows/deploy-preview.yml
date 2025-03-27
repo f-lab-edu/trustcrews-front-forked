@@ -3,6 +3,8 @@ env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL_PREVIEW }}
+  NEXT_PUBLIC_BACKEND: ${{ secrets.NEXT_PUBLIC_BACKEND_PREVIEW }}
 on:
   push:
     branches-ignore:
