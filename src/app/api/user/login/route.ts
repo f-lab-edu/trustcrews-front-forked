@@ -20,6 +20,8 @@ export async function POST(req: NextRequest) {
         const setCookieHeader = headers.get("Set-Cookie");
 
         const cookieStore = cookies();
+        console.log("acctoken: ", accessToken);
+        console.log("setCookieHeader: ", setCookieHeader);
         if (accessToken && setCookieHeader) {
             const {token, options} = getRefreshToken(setCookieHeader);
             console.log("acc option: ", {...options, sameSite:'strict'});
