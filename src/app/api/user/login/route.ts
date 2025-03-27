@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
             cookieStore.set("Access", accessToken, {...options, sameSite:'strict'});
             cookieStore.set("Refresh", token, {...options, sameSite:'strict'});
         }else{
-            throw new GatewayError("EAUTH", "Token refresh response did not contain necessary headers");
+            throw new GatewayError("EAUTH", `Token refresh response did not contain necessary headers: Empty - ${!accessToken && 'Access,'} ${!setCookieHeader && 'Set-Cookie Header'}`);
         }
 
         const copiedRes = res.clone();
