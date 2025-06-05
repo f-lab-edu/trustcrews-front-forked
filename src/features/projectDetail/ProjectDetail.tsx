@@ -1,7 +1,7 @@
 import { ReactNode, Suspense, useEffect } from 'react';
-import ProjectInfoSkeleton from '@/features/projectDetail/projectInfo/contents/ProjectInfoSkeleton';
-import ProjectInfo from '@/features/projectDetail/projectInfo/contents/ProjectInfo';
-import ProjectNavTab from '@/features/projectDetail/ProjectNavTab';
+import ProjectInfoSkeleton from '@/features/projectDetail/projectInfo/components/ProjectInfoSkeleton';
+import ProjectInfo from '@/features/projectDetail/projectInfo/components/ProjectInfo';
+import ProjectDetailNavTab from '@/features/projectDetail/ProjectDetailNavTab';
 import {
   DEFAULT_PM_AUTH,
   projectManageAuthStateStore,
@@ -13,15 +13,15 @@ import {
   PROJECT_MENU,
   projectActiveNavState,
 } from '@/store/projectDetail/ProjectNavTabStateStore';
-import ProjectJobSkeleton from '@/features/projectDetail/job/contents/ProjectJobSkeleton';
-import ProjectJob from '@/features/projectDetail/job/contents/ProjectJob';
-import ProjectCrews from '@/features/projectDetail/crew/crews/contents/ProjectCrews';
-import ProjectCrewsSkeleton from '@/features/projectDetail/crew/crews/contents/ProjectCrewsSkeleton';
-import { ProjectCrewDetail } from '@/features/projectDetail/crew/crewDetail/ProjectCrewDetail';
-import { ProjectNotice } from '@/features/projectDetail/notice/contents/ProjectNotice';
-import { ProjectNoticeSkeleton } from '@/features/projectDetail/notice/contents/ProjectNoticeSkeleton';
-import ProjectConfig from '@/features/projectDetail/config/contents/ProjectConfig';
-import ProjectConfigSkeleton from '@/features/projectDetail/config/contents/ProjectConfigSkeleton';
+import ProjectJobSkeleton from '@/features/projectDetail/job/components/ProjectJobSkeleton';
+import ProjectJob from '@/features/projectDetail/job/components/ProjectJob';
+import ProjectCrews from '@/features/projectDetail/crews/components/ProjectCrews';
+import ProjectCrewsSkeleton from '@/features/projectDetail/crews/components/ProjectCrewsSkeleton';
+import { ProjectCrewDetail } from '@/features/projectDetail/crewDetail/ProjectCrewDetail';
+import { ProjectNotice } from '@/features/projectDetail/notice/components/ProjectNotice';
+import { ProjectNoticeSkeleton } from '@/features/projectDetail/notice/components/ProjectNoticeSkeleton';
+import ProjectConfig from '@/features/projectDetail/config/components/ProjectConfig';
+import ProjectConfigSkeleton from '@/features/projectDetail/config/components/ProjectConfigSkeleton';
 import { ApplicationError } from '@/shared/utils/ApplicationError';
 import FieldQueryBoundary from '@/lib/error/FieldQueryBoundary';
 import ProjectDetailSkeleton from '@/features/projectDetail/ProjectDetailSkeleton';
@@ -93,7 +93,7 @@ const ProjectDetail = () => {
       <Suspense fallback={<ProjectInfoSkeleton />}>
         <ProjectInfo />
       </Suspense>
-      <ProjectNavTab />
+      <ProjectDetailNavTab />
       <FieldQueryBoundary
         errorFallbackSize='lg'
         suspenseFallback={suspenseFallback}

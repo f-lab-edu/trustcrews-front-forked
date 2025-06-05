@@ -89,11 +89,11 @@ export const useUpdateUserDetail = ({
   return useMutation({
     mutationFn: ({
       info,
-      profileImg,
+      image,
     }: {
       info: UserInfoInput;
-      profileImg?: UserProfileImgInput;
-    }) => updateUserDetail(info, profileImg),
+      image?: UserProfileImgInput;
+    }) => updateUserDetail(info, image),
     onSuccess: async (res) => {
       const invalidateUserDetail = queryClient.invalidateQueries({
         queryKey: [USER_DETAIL_INFO_QUERY_KEY],

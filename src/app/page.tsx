@@ -1,4 +1,4 @@
-import Guide from '@/features/guide/contents/Guide';
+import Guide from '@/features/guide/components/Guide';
 import MainBoard from '@/layouts/MainBoard';
 import InitialPostsDataProvider from '@/providers/data/InitialPostsDataProvider';
 import AuthStateProvider from '@/providers/AuthStateProvider';

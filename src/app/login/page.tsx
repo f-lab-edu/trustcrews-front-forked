@@ -1,4 +1,4 @@
-import LoginForm from '@/features/auth/login/contents/LogInForm';
+import LoginForm from '@/features/auth/login/components/LogInForm';
 import Link from 'next/link';
 
 const LoginPage = () => {

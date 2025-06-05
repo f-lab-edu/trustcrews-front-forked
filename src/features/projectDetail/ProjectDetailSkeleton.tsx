@@ -1,14 +1,14 @@
 import Skeleton from '@/shared/ui/skeleton/Skeleton';
-import ProjectInfoSkeleton from '@/features/projectDetail/projectInfo/contents/ProjectInfoSkeleton';
+import ProjectInfoSkeleton from '@/features/projectDetail/projectInfo/components/ProjectInfoSkeleton';
 import { useRecoilValue } from 'recoil';
 import {
   PROJECT_MENU,
   projectActiveNavState,
 } from '@/store/projectDetail/ProjectNavTabStateStore';
-import ProjectJobSkeleton from '@/features/projectDetail/job/contents/ProjectJobSkeleton';
-import ProjectCrewsSkeleton from '@/features/projectDetail/crew/crews/contents/ProjectCrewsSkeleton';
-import { ProjectNoticeSkeleton } from '@/features/projectDetail/notice/contents/ProjectNoticeSkeleton';
-import ProjectConfigSkeleton from '@/features/projectDetail/config/contents/ProjectConfigSkeleton';
+import ProjectJobSkeleton from '@/features/projectDetail/job/components/ProjectJobSkeleton';
+import ProjectCrewsSkeleton from '@/features/projectDetail/crews/components/ProjectCrewsSkeleton';
+import { ProjectNoticeSkeleton } from '@/features/projectDetail/notice/components/ProjectNoticeSkeleton';
+import ProjectConfigSkeleton from '@/features/projectDetail/config/components/ProjectConfigSkeleton';
 import { ApplicationError } from '@/shared/utils/ApplicationError';
 import { ReactNode } from 'react';
 
@@ -45,10 +45,7 @@ const ProjectDetailSkeleton = () => {
       <ProjectInfoSkeleton />
       <div className='tablet:my-[3.9rem] mobile:my-[3rem]'>
         <div className='border-b-[3px] border-grey300 pb-6'>
-          <nav
-            className='-mb-px flex tablet:space-x-10 mobile:justify-around'
-            aria-label='Tabs'
-          >
+          <nav className='-mb-px flex tablet:space-x-10 mobile:justify-around'>
             {Object.values(PROJECT_MENU).map((v) => (
               <Skeleton
                 key={v.name}

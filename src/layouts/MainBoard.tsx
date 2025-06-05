@@ -5,14 +5,14 @@ import {
   activeMainBoardTabStore,
   MAIN_BOARD_TABS,
 } from '@/store/ActiveMainBoardTabStateStore';
-import MyProjectApplies from '@/features/myProjectApplies/MyProjectApplies';
+import MyProjectApplies from '@/features/myProjectApplies/components/MyProjectApplies';
 import { useEffect } from 'react';
 import CardListSkeleton from '@/shared/ui/skeleton/CardListSkeleton';
 import { ITEM_COUNT_PER_PAGE } from '@/constants/pagination';
-import MyProjects from '@/features/myProjects/contents/MyProjects';
-import Posts from '@/features/posts/contents/Posts';
+import MyProjects from '@/features/myProjects/components/MyProjects';
+import Posts from '@/features/posts/components/Posts';
 import FieldQueryBoundary from '@/lib/error/FieldQueryBoundary';
-import PostsSkeleton from '@/features/posts/contents/PostsSkeleton';
+import PostsSkeleton from '@/features/posts/components/PostsSkeleton';
 import { AuthState, authStateStore } from '@/store/AuthStateStore';
 import useSyncAuthState from '@/hooks/useSyncAuthState';
 import { clsx } from 'clsx';

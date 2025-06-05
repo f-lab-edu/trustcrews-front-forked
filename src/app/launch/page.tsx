@@ -1,6 +1,6 @@
 'use client';
 
-import LaunchForm from '@/features/launch/contents/LaunchForm';
+import LaunchForm from '@/features/launch/components/LaunchForm';
 
 const LaunchPage = () => {
   return <LaunchForm />;

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import logo from '../../public/images/logo.png';
 import Link from 'next/link';
-import UserMenuSkeleton from '@/features/auth/userMenu/contents/UserMenuSkeleton';
+import UserMenuSkeleton from '@/features/auth/userMenu/components/UserMenuSkeleton';
 import { IoCreateOutline } from '@react-icons/all-files/io5/IoCreateOutline';
 import dynamic from 'next/dynamic';
 import FieldQueryBoundary from '@/lib/error/FieldQueryBoundary';
@@ -13,7 +13,7 @@ import { useRecoilValue } from 'recoil';
 import calcImageSizes from '@/lib/calcImageSizes';
 
 const UserMenu = dynamic(
-  () => import('@/features/auth/userMenu/contents/UserMenu'),
+  () => import('@/features/auth/userMenu/components/UserMenu'),
   {
     ssr: false,
     loading: () => <UserMenuSkeleton />,

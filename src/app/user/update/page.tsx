@@ -1,20 +1,24 @@
 'use client';
 
-import UserUpdateButton from '@/features/userProfileEditor/contents/UserUpdateButton';
-import UserProfileImgFormSkeleton from '@/features/userProfileEditor/contents/UserProfileImgFormSkeleton';
-import UserInfoFormSkeleton from '@/features/userProfileEditor/contents/UserInfoFormSkeleton';
+import SaveUserProfileButton from '@/features/userProfileEditor/components/SaveUserProfileButton';
+import UserImageFormSkeleton from '@/features/userProfileEditor/components/userImageForm/UserImageFormSkeleton';
+import UserInfoFormSkeleton from '@/features/userProfileEditor/components/userInfoForm/UserInfoFormSkeleton';
 import dynamic from 'next/dynamic';
 
 const UserProfileImgForm = dynamic(
-  () => import('@/features/userProfileEditor/contents/UserProfileImgForm'),
+  () =>
+    import(
+      '@/features/userProfileEditor/components/userImageForm/UserImageForm'
+    ),
   {
     ssr: false,
-    loading: () => <UserProfileImgFormSkeleton />,
+    loading: () => <UserImageFormSkeleton />,
   },
 );
 
 const UserInfoForm = dynamic(
-  () => import('@/features/userProfileEditor/contents/UserInfoForm'),
+  () =>
+    import('@/features/userProfileEditor/components/userInfoForm/UserInfoForm'),
   { ssr: false, loading: () => <UserInfoFormSkeleton /> },
 );
 
@@ -24,7 +28,7 @@ const UserUpdatePage = () => {
       <div className='w-[380px] mobile:w-[300px] space-y-5 mobile:space-y-3'>
         <UserProfileImgForm />
         <UserInfoForm />
-        <UserUpdateButton />
+        <SaveUserProfileButton />
       </div>
     </div>
   );
